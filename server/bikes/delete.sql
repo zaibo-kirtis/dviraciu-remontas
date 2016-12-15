@@ -1,0 +1,1 @@
+delete from bikes where id = {id}

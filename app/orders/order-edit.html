@@ -1,0 +1,103 @@
+<div class="container" style="margin-top: 12px" xmlns="">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+
+            <alert message="order.error"></alert>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Add new order
+                </div>
+
+                <div class="panel-body">
+                    <form>
+                        <fieldset class="form-group">
+                            <input type="text"
+                                   placeholder="Title"
+                                   ng-model="order.model.title"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <input type="number"
+                                   placeholder="Year"
+                                   ng-model="order.model.year"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input type="number"
+                                       placeholder="Price"
+                                       ng-model="order.model.price"
+                                       class="form-control"
+                                />
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"
+                                           ng-model="order.model.exclusive"
+                                           ng-true-value="1"
+                                           ng-false-value="0"
+                                    />
+                                    Exclusive
+                                </label>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <input type="text"
+                                   placeholder="Order art url"
+                                   ng-model="order.model.orderArt"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <select ng-model="order.model.type"
+                                    class="form-control"
+                                    title="type"
+                                    ng-options="at.id as at.name | capitalize for at in order.orderTypes">
+                            </select>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <select ng-model="order.model.recordLabel"
+                                    class="form-control"
+                                    title="recordLabel"
+                                    ng-options="rl.id as rl.name for rl in order.recordLabels">
+                            </select>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <select ng-model="order.model.artist"
+                                    class="form-control"
+                                    title="artist"
+                                    ng-options="a.id as a.name for a in order.artists">
+                            </select>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <select ng-model="order.model.discount"
+                                    class="form-control"
+                                    title="discount"
+                                    ng-options="d.id as d.name for d in order.discounts">
+                            </select>
+                        </fieldset>
+                    </form>
+                </div>
+
+                <div class="panel-footer">
+                    <a ng-click="order.submit()" class="btn btn-success">Save</a>
+                    <a href="#orders" class="btn btn-default">Cancel</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

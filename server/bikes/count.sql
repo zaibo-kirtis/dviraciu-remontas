@@ -1,0 +1,1 @@
+select count(id) as bikesCount from bike

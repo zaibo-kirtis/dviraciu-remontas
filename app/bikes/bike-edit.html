@@ -1,0 +1,86 @@
+<div class="container" style="margin-top: 12px" xmlns="">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+
+            <alert message="bike.error"></alert>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Naujas dviratis
+                </div>
+
+                <div class="panel-body">
+                    <form>
+                        <fieldset class="form-group">
+                            <label for="frame-number">Rėmo numeris</label>
+                            <input type="text"
+                                   id="frame-number"
+                                   ng-model="bike.model.frameNumber"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="brand">Gamintojas</label>
+                            <input type="text"
+                                   id="brand"
+                                   ng-model="bike.model.brand"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="model">Modelis</label>
+                            <input type="text"
+                                   id="model"
+                                   ng-model="bike.model.model"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="frame-type">Rėmo tipas</label>
+                            <select ng-model="bike.model.frameType"
+                                    class="form-control"
+                                    id="frame-type"
+                                    ng-options="at.id as at.name for at in bike.frameTypes">
+                            </select>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="wheel-radius">Ratų skersmuo</label>
+                            <input type="text"
+                                   id="wheel-radius"
+                                   ng-model="bike.model.wheelRadius"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="color">Spalva</label>
+                            <input type="text"
+                                   id="color"
+                                   ng-model="bike.model.color"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="description">Aprašymas</label>
+                            <textarea
+                                   id="description"
+                                   ng-model="bike.model.desciption"
+                                   class="form-control"
+                            ></textarea>
+                        </fieldset>
+                    </form>
+                </div>
+
+                <div class="panel-footer">
+                    <a ng-click="bike.submit()" class="btn btn-success">Išsaugoti</a>
+                    <a href="#bikes" class="btn btn-default">Atšaukti</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

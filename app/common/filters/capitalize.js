@@ -1,0 +1,11 @@
+export function capitalize() {
+    return ( str ) => ( str || '' )
+        .split( ' ' )
+        .map( capitalizeWord )
+        .join( ' ' );
+}
+
+function capitalizeWord( word ) {
+    return (word[ 0 ] || '').toUpperCase()
+        + word.slice( 1 ).toLowerCase();
+}

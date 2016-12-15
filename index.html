@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Žaibo kirtis</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Roboto&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="libs/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="icon" type="image/x-icon" href="bike.ico">
+
+    <style>
+        * {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .header {
+            padding: 24px;
+            background-color: #337ab7;
+            color: white;
+
+            font-size: 32px;
+        }
+
+        .clickable { cursor: pointer; }
+    </style>
+</head>
+<body ng-app="BicycleSystem">
+
+    <div class="header">
+        Žaibo kirtis
+        <span>
+            <i class="fa fa-bicycle"></i>
+            <i class="fa fa-wrench"></i>
+        </span>
+    </div>
+
+    <div class="container-fluid" ng-controller="MenuController as menu">
+        <ul class="nav nav-tabs">
+            <li><a href="/#orders" ng-if="menu.client() || menu.mechanic()">Užsakymai</a></li>
+            <li><a href="/#bikes" ng-if="menu.client()">Dviračiai</a></li>
+            <li><a href="/#cities" ng-if="menu.admin()">Miestai</a></li>
+            <li><a href="/#mechanics" ng-if="menu.admin()">Meistrai</a></li>
+            <li><a href="/#parts" ng-if="menu.admin()">Dalys</a></li>
+            <li><a href="/#payments" ng-if="menu.accountant() || menu.access.client()">Mokėjimai</a></li>
+            <li><a href="/#receipts" ng-if="menu.accountant() || menu.access.client()">Sąskaitos</a></li>
+            <li><a href="/#services" ng-if="menu.admin()">Servisai</a></li>
+            <li><a href="/#" ng-click="menu.logout()" ng-if="menu.loggedIn()" class="bg-danger">Atsijungti</a></li>
+        </ul>
+
+        <div ng-view></div>
+    </div>
+
+    <script src="libs/jquery.min.js"></script>
+    <script src="libs/bootstrap.min.js"></script>
+    <script src="libs/angular.min.js"></script>
+    <script src="libs/angular-route.min.js"></script>
+    <script src="templates.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

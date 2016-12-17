@@ -8,6 +8,6 @@ select
     m.email as email,
     m.user_id as userId,
     m.service_id as
-from `mechanic` m
-    join user us on m.user_id = us.id
+from `user` us
+    join user us on us.mechanic_id = m.id
 where m.id = {id};

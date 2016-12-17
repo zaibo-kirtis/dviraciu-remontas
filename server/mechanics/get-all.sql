@@ -6,5 +6,5 @@ select
     m.date_hired as dateHired,
     m.phone as phone,
     us.email as email,
-from `mechanic` m
-    join user us on m.user_id = us.id
+from `user` us
+    join user us on us.mechanic_id = m.id

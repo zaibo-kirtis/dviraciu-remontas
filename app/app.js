@@ -14,6 +14,8 @@ let BicycleSystem = angular.module( 'BicycleSystem', [
 
     OrdersModule,
     BikesModule,
+    MechanicsModule,
+    ServicesModule,
 
     AuthModule,
     CommonModule

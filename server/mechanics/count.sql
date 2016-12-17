@@ -1,0 +1,1 @@
+select count(id) as mechanicsCount from mechanic

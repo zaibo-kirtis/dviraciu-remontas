@@ -6,6 +6,8 @@ let mapsController = express.Router();
 // add map getters for selects here
 mapsController.get( '/frame-types', getMapGetter( 'frame_type', 'id', 'name' ) );
 mapsController.get( '/bikes', getMapGetter( 'bike', 'id', 'frame_number' ) );
+mapsController.get( '/users', getMapGetter( 'user', 'id', 'email' ) );
+mapsController.get( '/services', getMapGetter( 'service', 'id', 'name' ) );
 
 function getMapGetter( entity, idColumn, nameColumn ) {
     return ( request, response ) => {

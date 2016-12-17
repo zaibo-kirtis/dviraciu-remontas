@@ -5,6 +5,8 @@ export function BicycleSystemRouter( $routeProvider ) {
     $routeProvider
         .addRoutes( 'Order' )
         .addRoutes( 'Bike' )
+        .addRoutes( 'Mechanic' )
+        .addRoutes( 'Service' )
 
         .when( '/login', { controller: 'LoginController', controllerAs: 'login', templateUrl: 'login.html' } )
         .when( '/register', { controller: 'RegisterController', controllerAs: 'register', templateUrl: 'register.html' })

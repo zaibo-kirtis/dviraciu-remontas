@@ -45,7 +45,7 @@ function getWage( request, response ) {
 }
 
 function saveWage( request, response ) {
-    let accountantID = request.session.access.accountant;
+    let accountantID = request.session.user.access.accountant;
     request.body.accountant_id = accountantID;
     db.query( queries.saveWage, request.body, ( error, rows ) => {
         if( error ) {

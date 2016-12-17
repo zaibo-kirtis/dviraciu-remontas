@@ -1,0 +1,1 @@
+select count(id) as wageCount from wage

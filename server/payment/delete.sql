@@ -1,0 +1,1 @@
+delete from payment where id = {id}

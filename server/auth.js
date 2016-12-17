@@ -20,9 +20,9 @@ function login( req, res ) {
 
                 req.session.user.access = {
                     admin: user.adminId,
-                    mechanic: user.clientId,
-                    accountant: user.mechanicId,
-                    client: user.accountantId
+                    mechanic: user.mechanicId,
+                    accountant: user.accountantId,
+                    client: user.clientId
                 };
 
                 res.status( 200 ).send( req.session.user.access );

@@ -1,0 +1,50 @@
+<div class="container" style="margin-top: 12px" xmlns="">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+
+            <alert message="payment.error"></alert>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Naujas mokėjimas
+                </div>
+
+                <div class="panel-body">
+                    <form>
+                        <fieldset class="form-group">
+                            <label for="sum">Suma</label>
+                            <input type="text"
+                                   id="sum"
+                                   ng-model="payment.model.sum"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="receipt_id">Sąskaitos numeris</label>
+                            <input type="text"
+                                   id="receipt_id"
+                                   ng-model="payment.model.receipt_id"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="comment">Komentaras</label>
+                            <textarea
+                                   id="comment"
+                                   ng-model="payment.model.comment"
+                                   class="form-control"
+                            ></textarea>
+                        </fieldset>
+                    </form>
+                </div>
+
+                <div class="panel-footer">
+                    <a ng-click="payment.submit()" class="btn btn-success">Išsaugoti</a>
+                    <a href="#payments" class="btn btn-default">Atšaukti</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

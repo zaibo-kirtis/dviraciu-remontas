@@ -5,9 +5,10 @@ let config = {
 
     mysql: {
         host: 'stud.if.ktu.lt',
+        database: 'gvijan',
         user: 'gvijan',
         password: 'stud1234',
-        database: 'gvijan'
+        multipleStatements: true
     },
 
     favicon: 'bike.ico',

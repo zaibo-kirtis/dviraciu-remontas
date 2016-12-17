@@ -8,8 +8,10 @@ import { AuthModule } from './auth/auth-module';
 import { OrdersModule } from './orders/orders-module';
 import { BikesModule } from './bikes/bikes-module';
 import { MechanicsModule } from './mechanics/mechanics-module';
+import { PaymentsModule } from "./payment/payments-module";
 import { ServicesModule } from './services/services-module';
 import { PartsModule } from './parts/parts-module';
+import { WagesModule } from "./wage/wages-module";
 
 let BicycleSystem = angular.module( 'BicycleSystem', [
     'ngRoute',
@@ -18,8 +20,10 @@ let BicycleSystem = angular.module( 'BicycleSystem', [
     OrdersModule,
     BikesModule,
     MechanicsModule,
+    PaymentsModule,
     ServicesModule,
     PartsModule,
+    WagesModule,
 
     AuthModule,
     CommonModule

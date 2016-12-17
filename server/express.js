@@ -14,6 +14,8 @@ let bikesRouter = require( './bikes/bikes' );
 let usersRouter = require( './users/users' );
 let servicesRouter = require( './services/services' );
 let partsRouter = require( './parts/parts' );
+let paymentRouter = require( './payment/payment' );
+let wageRouter = require( './wage/wage' );
 
 let app = express();
 
@@ -41,6 +43,8 @@ function configureRoutes( app ) {
     app.use( '/api/bikes', bikesRouter );
     app.use( '/api/services', servicesRouter );
     app.use( '/api/parts', partsRouter );
+    app.use( '/api/payments', paymentRouter );
+    app.use( '/api/wages', wageRouter );
 
     app.post( '/login', auth.login );
     app.post( '/logout', auth.logout );

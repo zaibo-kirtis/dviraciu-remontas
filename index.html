@@ -45,6 +45,7 @@
             <li><a href="/#payments" ng-if="menu.accountant() || menu.access.client()">Mokėjimai</a></li>
             <li><a href="/#receipts" ng-if="menu.accountant() || menu.access.client()">Sąskaitos</a></li>
             <li><a href="/#services" ng-if="menu.admin()">Servisai</a></li>
+            <li><a href="/#wages" ng-if="menu.accountant()">Algos</a></li>
             <li><a href="/#" ng-click="menu.logout()" ng-if="menu.loggedIn()" class="bg-danger">Atsijungti</a></li>
         </ul>
 

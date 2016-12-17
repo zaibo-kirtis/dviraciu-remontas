@@ -6,6 +6,8 @@ export function BicycleSystemRouter( $routeProvider ) {
         .addRoutes( 'Order' )
         .addRoutes( 'Bike' )
         .addRoutes( 'Mechanic' )
+        .addRoutes( 'Payment' )
+        .addRoutes( 'Wage' )
         .addRoutes( 'Service' )
 
         .when( '/login', { controller: 'LoginController', controllerAs: 'login', templateUrl: 'login.html' } )

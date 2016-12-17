@@ -1,0 +1,38 @@
+<div class="container" style="margin-top: 12px">
+    <alert message="wages.error"></alert>
+
+    <a href="#wage" class="btn btn-primary">
+        <span class="glyphicon glyphicon-plus"></span>
+        <span>Tvirtinti algas</span>
+    </a>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Suma</th>
+                <th>Bauda</th>
+                <th>Dirbta valandų</th>
+                <th>Patvirtinimo data</th>
+                <th>Mokesčiai</th>
+                <th>PVM</th>
+                <th>Vardas Pavardė</th>
+                <th colspan="2">Komentaras</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="wage in wages.list">
+
+                <td>{{wage.wage}}</td>
+                <td></td>
+                <td>{{wage.work_hours_count}}</td>
+                <td>{{wage.date | date:'yyyy-MM-dd'}}</td>
+                <td>{{wage.deductibles}}</td>
+                <td>{{wage.pvm}}</td>
+                <td>{{wage.first_name}} {{wage.last_name}}</td>
+
+                <td class="ellipsis"></td>
+                <td><i class="fa fa-trash"></i></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

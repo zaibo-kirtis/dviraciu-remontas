@@ -1,4 +1,5 @@
 insert into `bike` (
+    id,
     frame_number,
     brand,
     model,
@@ -7,6 +8,7 @@ insert into `bike` (
     color,
     description
 ) values (
+    '{id}',
     {frameNumber},
     '{brand}',
     '{model}',

@@ -1,4 +1,5 @@
 insert into `service` (
+    id,
     name,
     address,
     working_hours_start,
@@ -7,6 +8,7 @@ insert into `service` (
     phone,
     city_id
 ) values (
+    '{id}',
     '{name}',
     '{address}',
     '{workStartTime}',

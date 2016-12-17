@@ -1,10 +1,11 @@
 select
-    b.frame_number as frameNumber,
-    b.brand as brand,
-    b.model as model,
-    ft.name as frameType,
-    b.wheel_radius as wheelRadius,
-    b.color as color,
-    b.description as description
-from `user` b
-    join frame_type ft on b.frame_type_id = ft.id
+    id,
+    email,
+    password,
+    admin_id as adminId,
+    client_id as clientId,
+    mechanic_id as mechanicId,
+    accountant_id as accountantId,
+    date_registered as dateRegistered,
+    last_logged_in as lastLoggedIn
+from `user`

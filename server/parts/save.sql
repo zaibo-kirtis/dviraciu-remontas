@@ -1,10 +1,12 @@
 insert into `part` (
+    id,
     name,
     manufacturer,
     price,
     description,
     warranty_until
 ) values (
+    '{id}',
     '{name}',
     '{manufacturer}',
     {price},

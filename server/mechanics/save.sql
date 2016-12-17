@@ -1,4 +1,5 @@
 insert into `mechanic` (
+    id,
     first_name,
     last_name,
     work_hours_count,
@@ -10,6 +11,7 @@ insert into `mechanic` (
     service_id,
     sex_id
 ) values (
+    '{id}',
     '{firstName}',
     '{lastName}',
     '{workHours}',
@@ -17,14 +19,16 @@ insert into `mechanic` (
     '{dateHired}',
     '{phone}',
     '{birthdate}',
-    'dateModified',
-    'service',
-    'sex'
+    '{dateModified}',
+    '{service}',
+    '{sex}'
 ) on duplicate key update
-    frame_number = values(frame_number),
-    brand = values(brand),
-    model = values(model),
-    frame_type_id = values(frame_type_id),
-    wheel_radius = values(wheel_radius),
-    color = values(color),
-    description = values(description);
+    first_name = values(first_name),
+    last_name = values(last_name),
+    work_hours_count = values(work_hours_count),
+    specialization = values(specialization),
+    phone = values(phone),
+    birthdate = values(birthdate),
+    date_modified = values(date_modified),
+    service_id = values(service_id),
+    sex_id = values(sex_id);

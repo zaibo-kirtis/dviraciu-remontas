@@ -12,6 +12,7 @@ import { PaymentsModule } from "./payment/payments-module";
 import { ServicesModule } from './services/services-module';
 import { PartsModule } from './parts/parts-module';
 import { WagesModule } from "./wage/wages-module";
+import { UsersModule } from "./wage/users-module";
 
 let BicycleSystem = angular.module( 'BicycleSystem', [
     'ngRoute',
@@ -24,6 +25,7 @@ let BicycleSystem = angular.module( 'BicycleSystem', [
     ServicesModule,
     PartsModule,
     WagesModule,
+    UsersModule,
 
     AuthModule,
     CommonModule

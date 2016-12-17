@@ -1,4 +1,5 @@
 select
+    b.id, as id,
     b.name as name,
     b.manufacturer as manufacturer,
     b.price as price,

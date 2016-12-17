@@ -3,7 +3,7 @@ export function WageController( WagesService, MapsService, $routeParams, $locati
     let self = this;
     $controller('BaseController', { vm: self });
     this.model = {
-      date: Date.now
+        date: new Date()
     };
     this.submit = function submit() {
         self.clearError();
@@ -16,14 +16,9 @@ export function WageController( WagesService, MapsService, $routeParams, $locati
     function getWage() {
         self.clearError();
 
-        if( $routeParams.id ) {
-            WagesService.getWage( $routeParams.id ).then( response => {
-                self.model = response.data;
-            }, self.handleError );
-        }
-
-        MapsService.getFrameTypes().then( response => {
-            self.frameTypes = response.data;
+        WagesService.getWage( $routeParams.id ).then( response => {
+            response.data.date = new Date(response.data.date);
+            self.model = response.data;
         }, self.handleError );
     }
 

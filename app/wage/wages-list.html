@@ -16,22 +16,22 @@
                 <th>Mokesčiai</th>
                 <th>PVM</th>
                 <th>Vardas Pavardė</th>
-                <th colspan="2">Komentaras</th>
+                <th>Komentaras</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="wage in wages.list">
 
-                <td>{{wage.wage}}</td>
+                <td>{{wage.sum}}</td>
                 <td></td>
-                <td>{{wage.work_hours_count}}</td>
+                <td>{{wage.work_hours}}</td>
                 <td>{{wage.date | date:'yyyy-MM-dd'}}</td>
                 <td>{{wage.deductibles}}</td>
                 <td>{{wage.pvm}}</td>
                 <td>{{wage.first_name}} {{wage.last_name}}</td>
 
                 <td class="ellipsis"></td>
-                <td><i class="fa fa-trash"></i></td>
+                <td><a ng-href="/#wage/{{wage.id}}"><i class="fa fa-pencil-square-o"></i></a></td>
             </tr>
         </tbody>
     </table>

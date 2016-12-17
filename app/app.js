@@ -7,6 +7,8 @@ import { AuthModule } from './auth/auth-module';
 
 import { OrdersModule } from './orders/orders-module';
 import { BikesModule } from './bikes/bikes-module';
+import { MechanicsModule } from './mechanics/mechanics-module';
+import { ServicesModule } from './services/services-module';
 
 let BicycleSystem = angular.module( 'BicycleSystem', [
     'ngRoute',

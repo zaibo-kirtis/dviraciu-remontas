@@ -32,7 +32,7 @@ function getUser( request, response ) {
     let id = request.params.id;
 
     if( id ) {
-        db.query( helpers.insertData( queries.getUser, request.params ), ( error, rows ) => {
+        db.query( queries.getUser, request.params, ( error, rows ) => {
             if( error ) {
                 response.status( 400 );
                 response.send( error.message );
@@ -46,7 +46,7 @@ function getUser( request, response ) {
 }
 
 function saveUser( request, response ) {
-    db.query( helpers.insertData( queries.saveUser, request.body ), ( error ) => {
+    db.query( queries.saveUser, request.body, ( error ) => {
         if( error ) {
             response.status( 400 );
             response.send( error.message );
@@ -58,7 +58,7 @@ function saveUser( request, response ) {
 }
 
 function deleteUser( request, response ) {
-    db.query( helpers.insertData( queries.deleteUser, request.params ), ( error ) => {
+    db.query( queries.deleteUser, request.params, ( error ) => {
         if( error ) {
             response.status( 400 );
             response.send( error.message );
@@ -69,11 +69,9 @@ function deleteUser( request, response ) {
     } );
 }
 
-usersController.getUser = function(username) {
+usersController.getUser = function(email) {
     return new Promise(( resolve, reject ) => {
-        let query = helpers.insertData( queries.getUser, { username });
-
-        db.query( query, ( error, rows ) => {
+        db.query( queries.getUser, { email }, ( error, rows ) => {
             if( error ) {
                 reject( error );
             } else {

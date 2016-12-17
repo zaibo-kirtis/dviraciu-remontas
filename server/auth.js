@@ -1,13 +1,20 @@
-let usersRepository = require('./users/users');
+let userRouter = require('./users/users');
+let helpers = require( './helpers' );
+let db = require( './database' );
+let response = require('./response');
+
+let queries = {
+    saveUser: require('./users/save.sql')
+};
 
 function login( req, res ) {
     if(req.session && req.session.user) {
-        res.send(req.session.user.access)
+        res.send(req.session.user.access);
     } else {
-        let username = req.body.username;
+        let email = req.body.email;
         let password = req.body.password;
 
-        usersRepository.getUser( username ).then(( user ) => {
+        userRouter.getUser( email ).then(( user ) => {
             if(user && user.password === password) {
                 req.session.user = user;
 
@@ -22,7 +29,7 @@ function login( req, res ) {
             } else {
                 res.status( 401 ).send();
             }
-        }).catch( res.status( 404 ).send );
+        }).catch( (error) => res.status( 401 ).send(error.message) );
     }
 }
 
@@ -49,9 +56,28 @@ function getGroupAuthMiddleware( group ) {
     }
 }
 
+function register( req, res ) {
+    let data = req.body;
+
+    userRouter.getUser( data.email ).then(( user ) => {
+        if(user) {
+            req.status( 400 ).send(response('Toks el. paštas jau yra užregistruotas'));
+        } else {
+            db.query( queries.saveUser, data, ( error ) => {
+                if( error ) {
+                    res.status( 400 ).send(error.message);
+                } else {
+                    res.status( 200 ).send();
+                }
+            });
+        }
+    }).catch( ( error ) => res.status( 500 ).send(error.message) );
+}
+
 module.exports = {
     login,
     logout,
+    register,
 
     admin: getGroupAuthMiddleware( 'admin' ),
     mechanic: getGroupAuthMiddleware( 'mechanic' ),

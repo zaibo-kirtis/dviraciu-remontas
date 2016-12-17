@@ -36,7 +36,7 @@
     </div>
 
     <div class="container-fluid" ng-controller="MenuController as menu">
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-pills">
             <li><a href="/#orders" ng-if="menu.client() || menu.mechanic()">Užsakymai</a></li>
             <li><a href="/#bikes" ng-if="menu.client()">Dviračiai</a></li>
             <li><a href="/#cities" ng-if="menu.admin()">Miestai</a></li>

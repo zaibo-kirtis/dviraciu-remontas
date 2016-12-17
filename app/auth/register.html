@@ -1,0 +1,58 @@
+<div class="container-fluid row">
+    <div class="col-lg-4 col-lg-offset-4">
+        <div class="panel panel-success">
+            <div class="panel-heading">Registracija</div>
+
+            <div class="panel-body">
+                <form ng-submit="register.register()">
+                    <div class="form-group">
+                        <label for="firstName">Vardas</label>
+                        <input type="text" required id="firstName" class="form-control" ng-model="register.model.firstName">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="lastName">Pavardė</label>
+                        <input type="text" required id="lastName" class="form-control" ng-model="register.model.lastName">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">El. paštas</label>
+                        <input type="email" required id="email" class="form-control" ng-model="register.model.email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Slaptažodis</label>
+                        <input type="password" required id="password" class="form-control" ng-model="register.model.password">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Telefonas</label>
+                        <input type="text" id="phone" class="form-control" ng-model="register.model.phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Adresas</label>
+                        <input type="text" id="address" class="form-control" ng-model="register.model.address">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Amžius</label>
+                        <input type="text" pattern="^[0-9]*$" id="age" class="form-control" ng-model="register.model.age">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sex">Lytis</label>
+                        <select id="sex"
+                                class="form-control"
+                                ng-options="s.id as s.name for s in register.sexes"
+                                ng-model="register.model.sex"
+                        ></select>
+                    </div>
+
+                    <button class="btn btn-success" type="submit">Registruotis</button>
+                    <a class="btn btn-link" href="/#login">Turite paskyrą? Prisijunkite</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

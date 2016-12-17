@@ -3,4 +3,4 @@ select
     user_group_id as userGroup,
     password
 from `user`
-    where email = '{username}';
+    where email = '{email}';

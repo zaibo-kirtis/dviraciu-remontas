@@ -19,4 +19,7 @@ let BicycleSystem = angular.module( 'BicycleSystem', [
     CommonModule
 ] )
     .controller( 'MenuController', MenuController )
-    .config( BicycleSystemRouter );
+    .config( BicycleSystemRouter )
+    .run(( AuthService ) => {
+        return AuthService.login();
+    });

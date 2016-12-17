@@ -1,21 +1,22 @@
 <div class="container-fluid row">
-    <div class="col-lg-4">
+    <div class="col-lg-4 col-lg-offset-4">
         <div class="panel panel-success">
-            <div class="panel-heading">Prisijunkite</div>
+            <div class="panel-heading">Prisijungimas</div>
 
             <div class="panel-body">
                 <form ng-submit="login.login()">
                     <div class="form-group">
-                        <label for="username">Vartotojo vardas</label>
-                        <input type="email" required id="username" class="form-control" ng-model="login.username">
+                        <label for="username">El. paštas</label>
+                        <input type="email" required id="username" class="form-control" ng-model="login.model.email">
                     </div>
 
                     <div class="form-group">
-                        <label for="password"></label>
-                        <input type="password" required id="password" class="form-control" ng-model="login.password">
+                        <label for="password">Slaptažodis</label>
+                        <input type="password" required id="password" class="form-control" ng-model="login.model.password">
                     </div>
 
                     <button class="btn btn-success" type="submit">Prisijungti</button>
+                    <a class="btn btn-link" href="/#register">Registruotis</a>
                 </form>
             </div>
         </div>

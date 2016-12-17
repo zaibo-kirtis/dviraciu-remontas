@@ -7,6 +7,4 @@ export function MenuController( AuthService, $controller ) {
     function logout() {
         AuthService.logout();
     }
-
-    AuthService.login().catch( this.handleError );
 }

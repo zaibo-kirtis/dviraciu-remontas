@@ -1,15 +1,14 @@
 /* @ngInject */
 export function LoginController( AuthService, $location, $controller ) {
     let self = this;
-    angular.extend(self, { login });
     $controller('BaseController', { vm: self });
 
-    function login() {
+    this.login = function() {
         self.clearError();
 
-        AuthService.login( self.username, self.password ).then( () => {
+        AuthService.login( self.model.email, self.model.password ).then( () => {
             $location.path( '/' );
         }, self.handleError );
-    }
+    };
 }
 

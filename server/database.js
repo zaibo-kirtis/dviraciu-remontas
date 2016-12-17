@@ -7,6 +7,11 @@ db.connect();
 
 module.exports = {
     query: function( query, data, cb ) {
-        db.query( helpers.insertData( query, data ), cb );
+        if(typeof(data) === 'function') {
+            cb = data;
+            db.query( query, cb );
+        } else {
+            db.query( helpers.insertData( query, data ), cb );
+        }
     }
 };

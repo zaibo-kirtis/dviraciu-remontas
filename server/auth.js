@@ -4,7 +4,8 @@ let db = require( './database' );
 let response = require('./response');
 
 let queries = {
-    saveUser: require('./users/save.sql')
+    saveUser: require('./users/save.sql'),
+    updateLastLoggedIn: require('./users/update-last-logged-in.sql')
 };
 
 function login( req, res ) {
@@ -16,16 +17,23 @@ function login( req, res ) {
 
         userRouter.getUser( email ).then(( user ) => {
             if(user && user.password === password) {
-                req.session.user = user;
+                let id = user.id;
+                db.query( queries.updateLastLoggedIn, { id }, ( error ) => {
+                    if( error ) {
+                        res.status( 400 ).send( error.message );
+                    } else {
+                        req.session.user = user;
 
-                req.session.user.access = {
-                    admin: user.adminId,
-                    mechanic: user.mechanicId,
-                    accountant: user.accountantId,
-                    client: user.clientId
-                };
+                        req.session.user.access = {
+                            admin: user.adminId,
+                            mechanic: user.mechanicId,
+                            accountant: user.accountantId,
+                            client: user.clientId
+                        };
 
-                res.status( 200 ).send( req.session.user.access );
+                        res.status( 200 ).send( req.session.user.access );
+                    }
+                })
             } else {
                 res.status( 401 ).send();
             }

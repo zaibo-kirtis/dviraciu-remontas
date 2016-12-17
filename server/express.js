@@ -13,6 +13,7 @@ let albumsRouter = require( './orders/orders' );
 let bikesRouter = require( './bikes/bikes' );
 let usersRouter = require( './users/users' );
 let servicesRouter = require( './services/services' );
+let partsRouter = require( './parts/parts' );
 
 let app = express();
 
@@ -39,6 +40,7 @@ function configureRoutes( app ) {
     app.use( '/api/orders', albumsRouter );
     app.use( '/api/bikes', bikesRouter );
     app.use( '/api/services', servicesRouter );
+    app.use( '/api/parts', partsRouter );
 
     app.post( '/login', auth.login );
     app.post( '/logout', auth.logout );

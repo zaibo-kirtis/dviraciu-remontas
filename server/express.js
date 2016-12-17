@@ -12,6 +12,7 @@ let reportsRouter = require( './reports/reports' );
 let albumsRouter = require( './orders/orders' );
 let bikesRouter = require( './bikes/bikes' );
 let usersRouter = require( './users/users' );
+let mechanicsRouter = require( './mechanics/mechanics' );
 let servicesRouter = require( './services/services' );
 let partsRouter = require( './parts/parts' );
 
@@ -40,6 +41,7 @@ function configureRoutes( app ) {
     app.use( '/api/orders', albumsRouter );
     app.use( '/api/bikes', bikesRouter );
     app.use( '/api/services', servicesRouter );
+    app.use( '/api/mechanics', mechanicsRouter );
     app.use( '/api/parts', partsRouter );
 
     app.post( '/login', auth.login );

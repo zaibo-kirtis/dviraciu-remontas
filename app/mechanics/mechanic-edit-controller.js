@@ -5,7 +5,7 @@ export function MechanicController( MechanicsService, MapsService, $routeParams,
 
     this.submit = function submit() {
         self.clearError();
-
+        self.modified = Date.now();
         MechanicsService.saveMechanic( self.model ).then( () => {
             $location.path( '/mechanics' );
         }, self.handleError );
@@ -20,8 +20,12 @@ export function MechanicController( MechanicsService, MapsService, $routeParams,
             }, self.handleError );
         }
 
-        MapsService.getUsers().then( response => {
-            self.frameTypes = response.data;
+        MapsService.getSexes().then( response => {
+            self.sexes = response.data;
+        }, self.handleError );
+
+        MapsService.getServices().then( response => {
+            self.services = response.data;
         }, self.handleError );
     }
 

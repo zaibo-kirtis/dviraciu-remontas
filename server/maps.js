@@ -9,6 +9,9 @@ mapsController.get( '/bikes', getMapGetter( 'bike', 'id', 'frame_number' ) );
 mapsController.get( '/users', getMapGetter( 'user', 'id', 'email' ) );
 mapsController.get( '/services', getMapGetter( 'service', 'id', 'name' ) );
 mapsController.get( '/parts', getMapGetter( 'part', 'id', 'name' ) );
+mapsController.get( '/cities', getMapGetter( 'city', 'id', 'name' ) );
+mapsController.get( '/mechanics', getMapGetter( 'mechanic', 'id', 'name' ) );
+mapsController.get( '/sexes', getMapGetter( 'sex', 'id', 'name' ) );
 
 function getMapGetter( entity, idColumn, nameColumn ) {
     return ( request, response ) => {

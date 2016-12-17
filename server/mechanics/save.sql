@@ -5,10 +5,10 @@ insert into `mechanic` (
     specialization,
     date_hired,
     phone,
-    email,
-    user_id,
-    service_id.
-    wage_id
+    birthdate,
+    date_modified,
+    service_id,
+    sex_id
 ) values (
     '{firstName}',
     '{lastName}',
@@ -16,10 +16,10 @@ insert into `mechanic` (
     '{specialization}',
     '{dateHired}',
     '{phone}',
-    '{email}',
-    '',
-    '',
-    '1'
+    '{birthdate}',
+    'dateModified',
+    'service',
+    'sex'
 ) on duplicate key update
     frame_number = values(frame_number),
     brand = values(brand),

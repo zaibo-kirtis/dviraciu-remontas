@@ -15,8 +15,10 @@
             <th>Specializacija</th>
             <th>Įdarbinimo data</th>
             <th>Telefono numeris</th>
-            <th>El. Paštas</th>
-            <th>Vartotojas</th>
+            <th>Gimimo data</th>
+            <th>Paskutinį kartą redaguotas</th>
+            <th>Darbo vieta</th>
+            <th>Lytis</th>
         </tr>
         </thead>
         <tbody>
@@ -26,11 +28,14 @@
             <td>{{mechanic.lastName}}</td>
             <td>{{mechanic.workHours}}</td>
             <td>{{mechanic.specialization}}</td>
-            <td>{{mechanic.dateHired}}"</td>
+            <td>{{mechanic.dateHired | date : 'yyyy-MM-dd'}}</td>
             <td>{{mechanic.phone}}</td>
-            <td>{{mechanic.email}}</td>
-            <td>{{mechanic.userEmail}}</td>
+            <td>{{mechanic.birthdate | date : 'yyyy-MM-dd'}}</td>
+            <td>{{mechanic.modified | date : 'yyyy-MM-dd'}}</td>
+            <td>{{mechanic.service}}</td>
+            <td>{{mechanic.sex}}</td>
             <td><i class="fa fa-trash"></i></td>
+            <td><a ng-href="/#mechanic/{{mechanic.id}}"><i class="fa fa-pencil-square-o"></i></a></td>
         </tr>
         </tbody>
     </table>

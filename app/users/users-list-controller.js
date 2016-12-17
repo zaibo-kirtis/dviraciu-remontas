@@ -13,7 +13,7 @@ export function UsersController( UsersService, $controller ) {
         }, self.handleError );
     };
 
-    function getServices() {
+    function getUsers() {
         self.clearError();
 
         UsersService.getUsers().then( ( response ) => {

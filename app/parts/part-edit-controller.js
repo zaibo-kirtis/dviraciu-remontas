@@ -3,8 +3,15 @@ export function PartController( PartsService, MapsService, $routeParams, $locati
     let self = this;
     $controller('BaseController', { vm: self });
 
+    this.model = {
+        warrantyUntil: new Date()
+    };
+
     this.submit = function submit() {
         self.clearError();
+        console.log(self.model.warrantyUntil);
+
+        self.model.warrantyUntil
 
         PartsService.savePart( self.model ).then( () => {
             $location.path( '/parts' );
@@ -16,13 +23,10 @@ export function PartController( PartsService, MapsService, $routeParams, $locati
 
         if( $routeParams.id ) {
             PartsService.getPart( $routeParams.id ).then( response => {
+                response.data.warrantyUntil = new Date(response.data.warrantyUntil);
                 self.model = response.data;
             }, self.handleError );
         }
-
-        MapsService.getFrameTypes().then( response => {
-            self.frameTypes = response.data;
-        }, self.handleError );
     }
 
     getPart();

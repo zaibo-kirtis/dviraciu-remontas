@@ -12,8 +12,8 @@
                 <th>Pavadinimas</th>
                 <th>Gamintojas</th>
                 <th>Kaina</th>
-                <th colspan="2">Aprašymas</th>
                 <th>Garantija iki</th>
+                <th colspan="2">Aprašymas</th>
             </tr>
         </thead>
         <tbody>
@@ -22,10 +22,10 @@
                 <td>{{part.name}}</td>
                 <td>{{part.manufacturer}}</td>
                 <td>{{part.price}}</td>
+                <td>{{part.warrantyUntil | date : 'yyyy-MM-dd'}}</td>
                 <td class="ellipsis">{{part.description}}</td>
-                <td>{{part.warrantyUntil}}</td>
-
                 <td><i class="fa fa-trash"></i></td>
+                <td><a ng-href="/#part/{{part.id}}"><i class="fa fa-pencil-square-o"></i></a></td>
             </tr>
         </tbody>
     </table>

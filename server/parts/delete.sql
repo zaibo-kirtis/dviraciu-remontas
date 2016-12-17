@@ -1,1 +1,1 @@
-delete from parts where id = {id}
+delete from part where id = {id}

@@ -11,7 +11,7 @@ insert into `part` (
     '{manufacturer}',
     {price},
     '{description}',
-    '{warranty_until}'
+    '{warrantyUntil}'
 ) on duplicate key update
     name = values(name),
     manufacturer = values(manufacturer),

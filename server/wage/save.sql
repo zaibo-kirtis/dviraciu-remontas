@@ -28,3 +28,7 @@ insert into `wage` (
     date_confirmed = values(date_confirmed),
     accountant_id = values(accountant_id),
     mechanic_id = values(mechanic_id);
+
+UPDATE `mechanic`
+SET date_last_payed = curdate()
+WHERE id = {id};

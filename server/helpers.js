@@ -11,7 +11,6 @@ let helpers = {
         return query;
     },
 
-
     insertConditions: ( query, data ) => {
         let conditions = Object.keys( data )
             .filter( key => data[key].data )

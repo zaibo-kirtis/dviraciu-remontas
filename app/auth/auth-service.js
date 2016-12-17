@@ -1,8 +1,8 @@
 /* @ngInject */
 export function AuthService( $http, Session ) {
     return {
-        login(username, password) {
-            return $http.post('/login', { username: username, password: password }).then( response => {
+        login(email, password) {
+            return $http.post('/login', { email, password }).then( response => {
                 Session.user = response.data;
             });
         },
@@ -10,6 +10,9 @@ export function AuthService( $http, Session ) {
             return $http.post('/logout' ).then( () => {
                 delete Session.user;
             });
+        },
+        register( user ) {
+            return $http.post('/register', user);
         }
     }
 }

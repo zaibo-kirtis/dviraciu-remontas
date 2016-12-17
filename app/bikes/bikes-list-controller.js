@@ -1,21 +1,17 @@
 /* @ngInject */
 export function BikesController( BikesService, $controller ) {
     let self = this;
-
-    angular.extend( self, {
-        list: [],
-        deleteBike: deleteBike
-    } );
-
     $controller('BaseController', { vm: self });
 
-    function deleteBike( bike ) {
+    this.list = [];
+
+    this.deleteBike = function deleteBike( bike ) {
         self.clearError();
 
         BikesService.deleteBike( bike ).then( () => {
             getBikes();
         }, self.handleError );
-    }
+    };
 
     function getBikes() {
         self.clearError();

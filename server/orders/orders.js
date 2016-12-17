@@ -1,6 +1,5 @@
 let express = require( 'express' );
 let db = require( './../database' );
-let helpers = require( './../helpers' );
 
 let queries = {
     getOrders: require( './get-all.sql' ),
@@ -32,7 +31,7 @@ function getOrder( request, response ) {
     let id = request.params.id;
 
     if( id ) {
-        db.query( helpers.insertData( queries.getOrder, request.params ), ( error, rows ) => {
+        db.query( queries.getOrder, request.params, ( error, rows ) => {
             if( error ) {
                 response.status( 400 );
                 response.send( error.message );
@@ -54,7 +53,7 @@ function saveOrder( request, response ) {
             let data = request.body;
             data.id = data.id || rows[ 0 ].id + 1;
 
-            db.query( helpers.insertData( queries.saveOrder, data ), ( error, rows ) => {
+            db.query( queries.saveOrder, data, ( error, rows ) => {
                 if( error ) {
                     response.status( 400 );
                     response.send( error.message );
@@ -68,7 +67,7 @@ function saveOrder( request, response ) {
 }
 
 function deleteOrder( request, response ) {
-    db.query( helpers.insertData( queries.deleteOrder, request.params ), ( error, rows ) => {
+    db.query( queries.deleteOrder, request.params, ( error, rows ) => {
         if( error ) {
             response.status( 400 );
             response.send( error.message );

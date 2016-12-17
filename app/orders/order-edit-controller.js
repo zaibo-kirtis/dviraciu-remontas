@@ -1,8 +1,15 @@
 /* @ngInject */
 export function OrderController( OrdersService, MapsService, $routeParams, $location, $controller, $q ) {
     let self = this;
-    angular.extend( self, { submit } );
     $controller( 'BaseController', { vm: self });
+
+    this.submit = function submit() {
+        self.clearError();
+
+        OrdersService.saveOrder( self.model ).then( () => {
+            $location.path( '/orders' );
+        }, self.handleError );
+    };
 
     function getOrder() {
         self.clearError();
@@ -25,15 +32,6 @@ export function OrderController( OrdersService, MapsService, $routeParams, $loca
             self.discounts = responses[ 3 ].data;
         }, self.handleError );
     }
-
-    function submit() {
-        self.clearError();
-
-        OrdersService.saveOrder( self.model ).then( () => {
-            $location.path( '/orders' );
-        }, self.handleError );
-    }
-
     getOrder();
 }
 

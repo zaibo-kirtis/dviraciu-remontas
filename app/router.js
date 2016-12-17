@@ -7,9 +7,10 @@ export function BicycleSystemRouter( $routeProvider ) {
         .addRoutes( 'Bike' )
 
         .when( '/login', { controller: 'LoginController', controllerAs: 'login', templateUrl: 'login.html' } )
+        .when( '/register', { controller: 'RegisterController', controllerAs: 'register', templateUrl: 'register.html' })
 
         .otherwise({
-            redirectTo: '/orders'
+            redirectTo: '/login'
         });
 }
 

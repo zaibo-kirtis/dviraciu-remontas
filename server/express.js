@@ -40,6 +40,8 @@ function configureRoutes( app ) {
 
     app.post( '/login', auth.login );
     app.post( '/logout', auth.logout );
+    app.post( '/register', auth.register );
+
     app.get( '/', getIndex );
     app.get( '/bike.ico', ( request, response ) => {
         response.sendFile( path.join(config.rootDir, config.favicon) );

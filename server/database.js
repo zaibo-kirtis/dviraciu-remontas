@@ -1,8 +1,12 @@
 let mysql = require('mysql');
 let config = require('../config');
+let helpers = require('./helpers' );
 
 let db = mysql.createConnection(config.mysql);
-
 db.connect();
 
-module.exports = db;
+module.exports = {
+    query: function( query, data, cb ) {
+        db.query( helpers.insertData( query, data ), cb );
+    }
+};

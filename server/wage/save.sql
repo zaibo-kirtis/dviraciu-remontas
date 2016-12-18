@@ -29,6 +29,9 @@ insert into `wage` (
     accountant_id = values(accountant_id),
     mechanic_id = values(mechanic_id);
 
-UPDATE `mechanic`
-SET date_last_payed = curdate()
-WHERE id = {id};
+update `mechanic`
+set date_last_payed = curdate()
+where id = {id};
+
+insert into `advance_payment` (sum, date, comment, wage_id)
+values ({sum}, curdate(), '{comment}', {id});

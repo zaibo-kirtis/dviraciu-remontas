@@ -45,7 +45,10 @@ function getBike( request, response ) {
 }
 
 function saveBike( request, response ) {
-    db.query( queries.saveBike, request.body, ( error, rows ) => {
+    let data = request.body;
+    data.clientId = request.session.user.access.client;
+
+    db.query( queries.saveBike, data, ( error, rows ) => {
         if( error ) {
             response.status( 400 );
             response.send( error.message );

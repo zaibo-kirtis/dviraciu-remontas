@@ -1,4 +1,5 @@
 select
+    b.id as id,
     b.frame_number as frameNumber,
     b.brand as brand,
     b.model as model,

@@ -1,8 +1,9 @@
 select
+    b.id,
     b.frame_number as frameNumber,
     b.brand as brand,
     b.model as model,
-    ft.name as frameType,
+    ft.id as frameType,
     b.wheel_radius as wheelRadius,
     b.color as color,
     b.description as description

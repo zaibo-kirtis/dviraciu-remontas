@@ -15,7 +15,7 @@ let flatten = require( 'gulp-flatten' );
 let config = require( './config' );
 
 function compile( watch ) {
-    let bundle = watchify( browserify( config.js ) )
+    let bundle =  browserify( config.js )
         .transform( babelify, {
             presets: [ 'es2015' ]
         } );
@@ -37,7 +37,10 @@ function buildJs( browserifiedBundle ) {
         .pipe( annotate() )
         .pipe( sourcemaps.init() )
         .pipe( sourcemaps.write( '.' ) )
-        .pipe( gulp.dest( config.staticDir ) );
+        .pipe( gulp.dest( config.staticDir ) )
+        .on( 'error', ( error ) => {
+            console.log( console.error(error))
+        });
 }
 
 function buildHtml() {
@@ -68,3 +71,5 @@ gulp.task( 'prod', () => {
 gulp.task( 'dev', () => {
     return seq( 'libs', 'html', [ 'compile-watch', 'watch' ] );
 } );
+
+gulp.task( 'default', ['prod']);

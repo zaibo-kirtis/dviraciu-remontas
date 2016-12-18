@@ -4,7 +4,9 @@ let db = require( './database' );
 let response = require('./response');
 
 let queries = {
-    saveUser: require('./users/save.sql')
+    saveUser: require('./users/save.sql'),
+    updateLastLoggedIn: require('./users/update-last-logged-in.sql'),
+    createWithClient: require('./users/create-with-client.sql')
 };
 
 function login( req, res ) {
@@ -16,16 +18,23 @@ function login( req, res ) {
 
         userRouter.getUser( email ).then(( user ) => {
             if(user && user.password === password) {
-                req.session.user = user;
+                let id = user.id;
+                db.query( queries.updateLastLoggedIn, { id }, ( error ) => {
+                    if( error ) {
+                        res.status( 400 ).send( error.message );
+                    } else {
+                        req.session.user = user;
 
-                req.session.user.access = {
-                    admin: user.adminId,
-                    mechanic: user.mechanicId,
-                    accountant: user.accountantId,
-                    client: user.clientId
-                };
+                        req.session.user.access = {
+                            admin: user.adminId,
+                            mechanic: user.mechanicId,
+                            accountant: user.accountantId,
+                            client: user.clientId
+                        };
 
-                res.status( 200 ).send( req.session.user.access );
+                        res.status( 200 ).send( req.session.user.access );
+                    }
+                })
             } else {
                 res.status( 401 ).send();
             }
@@ -61,11 +70,11 @@ function register( req, res ) {
 
     userRouter.getUser( data.email ).then(( user ) => {
         if(user) {
-            req.status( 400 ).send(response('Toks el. paštas jau yra užregistruotas'));
+            res.status( 400 ).send(response('Toks el. paštas jau yra užregistruotas'));
         } else {
-            db.query( queries.saveUser, data, ( error ) => {
+            db.query( queries.createWithClient, data, ( error ) => {
                 if( error ) {
-                    res.status( 400 ).send(error.message);
+                    res.status( 400 ).send( error.message);
                 } else {
                     res.status( 200 ).send();
                 }

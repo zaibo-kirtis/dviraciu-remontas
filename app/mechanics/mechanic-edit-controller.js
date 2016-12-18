@@ -3,9 +3,9 @@ export function MechanicController( MechanicsService, MapsService, $routeParams,
     let self = this;
     $controller('BaseController', { vm: self });
     this.model = {
-        dateLastPayed : Date.now,
-        dateHired : Date.now,
-        birthdate : Date.now
+        dateLastPayed : new Date(),
+        dateHired : new Date(),
+        birthdate : new Date()
     };
     this.submit = function submit() {
         self.clearError();

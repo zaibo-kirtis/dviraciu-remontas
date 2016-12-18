@@ -1,0 +1,40 @@
+<div class="container" style="margin-top: 12px">
+    <alert message="clients.error"></alert>
+
+    <a href="#client" class="btn btn-primary">
+        <span class="glyphicon glyphicon-plus"></span>
+        <span>Pridėti klientą</span>
+    </a>
+
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Vardas</th>
+            <th>Pavardė</th>
+            <th>El. paštas</th>
+            <th>Telefono nr.</th>
+            <th>Adresas</th>
+            <th>Lytis</th>
+            <th>Registracijos data</th>
+            <th>Gimimo data</th>
+            <th>Paskutinį kartą redaguotas</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="client in clients.list">
+
+            <td>{{client.firstName}}</td>
+            <td>{{client.lastName}}</td>
+            <td>{{client.email}}</td>
+            <td>{{client.phone}}</td>
+            <td>{{client.address}}</td>
+            <td>{{client.sex}}</td>
+            <td>{{client.dateRegistered | date : 'yyyy-MM-dd'}}</td>
+            <td>{{client.birthdate | date : 'yyyy-MM-dd'}}</td>
+            <td>{{client.modified | date : 'yyyy-MM-dd'}}</td>
+            <td><i class="fa fa-trash"></i></td>
+            <td><a ng-href="/#client/{{client.id}}"><i class="fa fa-pencil-square-o"></i></a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>

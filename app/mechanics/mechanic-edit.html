@@ -33,6 +33,60 @@
                         </fieldset>
 
                         <fieldset class="form-group">
+                            <label for="email">El. paštas</label>
+                            <input type="email"
+                                   id="email"
+                                   ng-model="mechanic.model.email"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="birthdate">Gimimo data</label>
+                            <input type="date"
+                                   id="birthdate"
+                                   ng-model="mechanic.model.birthdate"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="phone">Telefono numeris</label>
+                            <input type="text"
+                                   id="phone"
+                                   ng-model="mechanic.model.phone"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="sex">Lytis</label>
+                            <select ng-model="mechanic.model.sex"
+                                    class="form-control"
+                                    id="sex"
+                                    ng-options="at.id as at.name for at in mechanic.sexes">
+                            </select>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="specialization">Specializacija</label>
+                            <input type="text"
+                                   id="specialization"
+                                   ng-model="mechanic.model.specialization"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="date-hired">Įdarbinimo data</label>
+                            <input type="date"
+                                   id="date-hired"
+                                   ng-model="mechanic.model.dateHired"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <fieldset class="form-group">
                             <label for="work-hours">Darbo trukmė</label>
                             <input type="text"
                                    id="work-hours"
@@ -51,51 +105,6 @@
                             />
                         </fieldset>
 
-                        <fieldset class="form-group">
-                            <label for="specialization">Specializacija</label>
-                            <input type="text"
-                                   id="specialization"
-                                   ng-model="mechanic.model.specialization"
-                                   class="form-control"
-                            />
-                        </fieldset>
-
-
-                        <fieldset class="form-group">
-                            <label for="date-hired">Įdarbinimo data</label>
-                            <input type="date"
-                                   id="date-hired"
-                                   ng-model="mechanic.model.dateHired"
-                                   class="form-control"
-                            />
-                        </fieldset>
-
-                        <fieldset class="form-group">
-                            <label for="phone">Telefono numeris</label>
-                            <input type="text"
-                                   id="phone"
-                                   ng-model="mechanic.model.phone"
-                                   class="form-control"
-                            />
-                        </fieldset>
-
-                        <fieldset class="form-group">
-                            <label for="birthdate">Gimimo data</label>
-                            <input type="date"
-                                   id="birthdate"
-                                   ng-model="mechanic.model.birthdate"
-                                   class="form-control"
-                            />
-                        </fieldset>
-
-                        <fieldset class="form-group">
-                            <label for="email">El. paštas</label>
-                            <input type="email"
-                                   id="email"
-                                   ng-model="mechanic.model.email"
-                                   class="form-control"
-                            />
-                        </fieldset>
 
                         <fieldset class="form-group">
                             <label for="service">Servisas</label>
@@ -106,23 +115,16 @@
                             </select>
                         </fieldset>
 
-                        <!--<fieldset class="form-group">-->
-                            <!--<label for="modified">Paskutinį kartą keistas</label>-->
-                            <!--<input type="modified"-->
-                                   <!--id="modified"-->
-                                   <!--ng-model="mechanic.model.modified"-->
-                                   <!--class="form-control"-->
-                            <!--/>-->
-                        <!--</fieldset>-->
-
                         <fieldset class="form-group">
-                            <label for="sex">Lytis</label>
-                            <select ng-model="mechanic.model.sex"
-                                    class="form-control"
-                                    id="sex"
-                                    ng-options="at.id as at.name for at in mechanic.sexes">
-                            </select>
+                            <label for="modified">Paskutinį kartą keistas</label>
+                            <input ng-disabled="true" type="modified"
+                                   id="modified"
+                                   ng-model="mechanic.model.modified"
+                                   class="form-control"
+                            />
                         </fieldset>
+
+
 
                     </form>
                 </div>

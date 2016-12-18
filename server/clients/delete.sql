@@ -1,0 +1,1 @@
+delete from clients where id = {id}

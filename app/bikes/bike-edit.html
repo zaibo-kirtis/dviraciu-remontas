@@ -5,8 +5,11 @@
             <alert message="bike.error"></alert>
 
             <div class="panel panel-default">
-                <div class="panel-heading">
+                <div ng-if="!bike.model.id" class="panel-heading">
                     Naujas dviratis
+                </div>
+                <div ng-if="bike.model.id" class="panel-heading">
+                    Dviračio redagavimas
                 </div>
 
                 <div class="panel-body">

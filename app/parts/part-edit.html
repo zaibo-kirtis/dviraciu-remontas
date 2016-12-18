@@ -5,8 +5,11 @@
             <alert message="part.error"></alert>
 
             <div class="panel panel-default">
-                <div class="panel-heading">
+                <div ng-if="!part.model.id" class="panel-heading">
                     Nauja detalė
+                </div>
+                <div ng-if="part.model.id" class="panel-heading">
+                    Detalės redagavimas
                 </div>
 
                 <div class="panel-body">

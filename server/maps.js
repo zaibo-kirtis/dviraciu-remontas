@@ -12,6 +12,7 @@ mapsController.get( '/parts', getMapGetter( 'part', 'id', 'name' ) );
 mapsController.get( '/cities', getMapGetter( 'city', 'id', 'name' ) );
 mapsController.get( '/mechanics', getFirstAndLastNames( 'mechanic', 'id', 'first_name', 'last_name' ) );
 mapsController.get( '/sexes', getMapGetter( 'sex', 'id', 'name' ) );
+mapsController.get( '/tasks', getMapGetter( 'task', 'id', 'name' ) );
 mapsController.get( '/admins', getFirstAndLastNames( 'admin', 'id', 'first_name', 'last_name' ) );
 mapsController.get( '/accountants', getFirstAndLastNames( 'accountant', 'id', 'first_name', 'last_name' ) );
 mapsController.get( '/clients', getFirstAndLastNames( 'client', 'id', 'first_name', 'last_name' ) );

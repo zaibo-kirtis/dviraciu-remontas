@@ -9,4 +9,4 @@ select
     us.date_registered as dateRegistered,
     us.last_logged_in as lastLoggedIn
 from `user` us
-where us.email = '{email}'
+where us.id ='{id}';

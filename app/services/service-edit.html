@@ -5,8 +5,11 @@
             <alert message="service.error"></alert>
 
             <div class="panel panel-default">
-                <div class="panel-heading">
+                <div ng-if="!service.model.id" class="panel-heading">
                     Naujas servisas
+                </div>
+                <div ng-if="service.model.id" class="panel-heading">
+                    Serviso redagavimas
                 </div>
 
                 <div class="panel-body">

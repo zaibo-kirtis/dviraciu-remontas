@@ -11,6 +11,7 @@ export function BicycleSystemRouter( $routeProvider ) {
         .addRoutes( 'Service' )
         .addRoutes( 'User' )
         .addRoutes( 'Part' )
+        .addRoutes( 'Task' )
 
         .when( '/login', { controller: 'LoginController', controllerAs: 'login', templateUrl: 'login.html' } )
         .when( '/register', { controller: 'RegisterController', controllerAs: 'register', templateUrl: 'register.html' })

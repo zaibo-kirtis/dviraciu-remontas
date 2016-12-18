@@ -1,1 +1,1 @@
-delete from bikes where id = {id}
+delete from bike where id = {id}

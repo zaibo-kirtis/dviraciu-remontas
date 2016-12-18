@@ -17,6 +17,7 @@ let servicesRouter = require( './services/services' );
 let partsRouter = require( './parts/parts' );
 let paymentRouter = require( './payment/payment' );
 let wageRouter = require( './wage/wage' );
+let taskRouter = require( './tasks/tasks' );
 
 let app = express();
 
@@ -47,6 +48,7 @@ function configureRoutes( app ) {
     app.use( '/api/parts', partsRouter );
     app.use( '/api/payments', paymentRouter );
     app.use( '/api/wages', wageRouter );
+    app.use( '/api/tasks', taskRouter );
 
     app.post( '/login', auth.login );
     app.post( '/logout', auth.logout );

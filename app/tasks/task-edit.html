@@ -1,0 +1,54 @@
+<div class="container" style="margin-top: 12px" xmlns="">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+
+            <alert message="task.error"></alert>
+
+            <div class="panel panel-default">
+                <div ng-if="!task.model.id" class="panel-heading">
+                    Nauja paslauga
+                </div>
+                <div ng-if="task.model.id" class="panel-heading">
+                    Paslaugos redagavimas
+                </div>
+
+                <div class="panel-body">
+                    <form>
+                        <fieldset class="form-group">
+                            <label for="name">Pavadinimas</label>
+                            <input type="text"
+                                   id="name"
+                                   ng-model="task.model.name"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="price">Kaina</label>
+                            <input type="text"
+                                   id="price"
+                                   ng-model="task.model.price"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="description">Aprašymas</label>
+                            <input type="text"
+                                   id="description"
+                                   ng-model="task.model.description"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                    </form>
+                </div>
+
+                <div class="panel-footer">
+                    <a ng-click="task.submit()" class="btn btn-success">Išsaugoti</a>
+                    <a href="#tasks" class="btn btn-default">Atšaukti</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

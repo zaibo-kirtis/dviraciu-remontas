@@ -5,8 +5,11 @@
             <alert message="user.error"></alert>
 
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    Naujas servisas
+                <div ng-if="!user.model.id" class="panel-heading">
+                    Naujas vartotojas
+                </div>
+                <div ng-if="user.model.id" class="panel-heading">
+                    Vartotojo redagavimas
                 </div>
 
                 <div class="panel-body">
@@ -31,7 +34,7 @@
 
                         <fieldset class="form-group">
                             <label for="client">Klientas</label>
-                            <select ng-model="user.model.client"
+                            <select ng-model="user.model.clientId"
                                     class="form-control"
                                     id="client"
                                     ng-options="at.id as at.first_name for at in user.clients">
@@ -40,7 +43,7 @@
 
                         <fieldset class="form-group">
                             <label for="admin">Administratorius</label>
-                            <select ng-model="user.model.admin"
+                            <select ng-model="user.model.adminId"
                                     class="form-control"
                                     id="admin"
                                     ng-options="at.id as at.first_name for at in user.admins">
@@ -49,7 +52,7 @@
 
                         <fieldset class="form-group">
                             <label for="accountant">Buhalteris</label>
-                            <select ng-model="user.model.accountant"
+                            <select ng-model="user.model.accountantId"
                                     class="form-control"
                                     id="accountant"
                                     ng-options="at.id as at.first_name for at in user.accountants">
@@ -58,7 +61,7 @@
 
                         <fieldset class="form-group">
                             <label for="mechanic">Mechanikas</label>
-                            <select ng-model="user.model.mechanic"
+                            <select ng-model="user.model.mechanicId"
                                     class="form-control"
                                     id="mechanic"
                                     ng-options="at.id as at.first_name for at in user.mechanics">

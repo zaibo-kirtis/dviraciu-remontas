@@ -5,8 +5,11 @@
             <alert message="order.error"></alert>
 
             <div class="panel panel-default">
-                <div class="panel-heading">
-                    Add new order
+                <div ng-if="!order.model.id" class="panel-heading">
+                    Naujas užsakymas
+                </div>
+                <div ng-if="order.model.id" class="panel-heading">
+                    Užsakymo redagavimas
                 </div>
 
                 <div class="panel-body">

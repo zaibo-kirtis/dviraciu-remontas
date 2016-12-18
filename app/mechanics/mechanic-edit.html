@@ -5,8 +5,11 @@
             <alert message="mechanic.error"></alert>
 
             <div class="panel panel-default">
-                <div class="panel-heading">
+                <div ng-if="!mechanic.model.id" class="panel-heading">
                     Naujas mechanikas
+                </div>
+                <div ng-if="mechanic.model.id" class="panel-heading">
+                    Mechaniko redagavimas
                 </div>
 
                 <div class="panel-body">

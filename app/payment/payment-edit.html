@@ -5,8 +5,11 @@
             <alert message="payment.error"></alert>
 
             <div class="panel panel-default">
-                <div class="panel-heading">
+                <div ng-if="!payment.model.id" class="panel-heading">
                     Naujas mokėjimas
+                </div>
+                <div ng-if="payment.model.id" class="panel-heading">
+                    Mokėjimo redagavimas
                 </div>
 
                 <div class="panel-body">

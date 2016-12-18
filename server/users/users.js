@@ -5,13 +5,14 @@ let helpers = require( './../helpers' );
 let usersController = express.Router();
 
 usersController.get( '/', getUsers );
-usersController.get( '/:id', getUser );
+usersController.get( '/:id', getUserById );
 usersController.post( '/', saveUser );
 usersController.delete( '/:id', deleteUser );
 
 let queries = {
     getUsers: require( './get-all.sql' ),
     getUser: require( './get.sql' ),
+    getUserById: require( './getById.sql' ),
     saveUser: require( './save.sql' ),
     deleteUser: require( './delete.sql' ),
     countUsers: require( './count.sql' )
@@ -28,11 +29,11 @@ function getUsers( request, response ) {
     } );
 }
 
-function getUser( request, response ) {
+function getUserById( request, response ) {
     let id = request.params.id;
 
     if( id ) {
-        db.query( queries.getUser, request.params, ( error, rows ) => {
+        db.query( queries.getUserById, request.params, ( error, rows ) => {
             if( error ) {
                 response.status( 400 );
                 response.send( error.message );

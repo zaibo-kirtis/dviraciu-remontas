@@ -36,6 +36,4 @@ let BicycleSystem = angular.module( 'BicycleSystem', [
 ] )
     .controller( 'MenuController', MenuController )
     .config( BicycleSystemRouter )
-    .run(( AuthService ) => {
-        return AuthService.login();
-    });
+    .run((AuthService) => AuthService.login());

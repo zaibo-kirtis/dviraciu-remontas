@@ -1,10 +1,12 @@
 /* @ngInject */
-export function MenuController( AuthService, $controller ) {
+export function MenuController( AuthService, MenuItems, $controller, $location ) {
     $controller('BaseController', { vm: this });
 
-    angular.extend(this, { logout });
+    this.menuItems = MenuItems;
 
-    function logout() {
-        AuthService.logout();
-    }
+    this.logout = function logout() {
+        AuthService.logout().then(() => {
+            $location.path('/');
+        }, self.handleError);
+    };
 }

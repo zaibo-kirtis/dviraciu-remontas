@@ -7,5 +7,9 @@ export let menuItems = [
     { route: 'payments', display: 'Mokėjimai', permissions: ['accountant', 'client'] },
     { route: 'receipts', display: 'Sąskaitos', permissions: ['accountant', 'client'] },
     { route: 'services', display: 'Servisai', permissions: ['admin'] },
-    { route: 'wages', display: 'Algos', permissions: ['accountant'] }
+    { route: 'wages', display: 'Algos', permissions: ['accountant'] },
+    { route: 'clients', display: 'Klientai', permissions: ['admin'] },
+    { route: 'users', display: 'Vartotojai', permissions: ['admin'] },
+    { route: 'tasks', display: 'Paslaugos', permissions: ['admin'] },
+
 ];

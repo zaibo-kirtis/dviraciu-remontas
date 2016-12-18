@@ -1,5 +1,6 @@
 /* ngInject */
-export function BicycleSystemRouter( $routeProvider ) {
+export function BicycleSystemRouter( $routeProvider, $locationProvider ) {
+    $locationProvider.html5Mode(true);
     $routeProvider.addRoutes = addRoutes;
 
     $routeProvider
@@ -18,7 +19,7 @@ export function BicycleSystemRouter( $routeProvider ) {
         .when( '/register', { controller: 'RegisterController', controllerAs: 'register', templateUrl: 'register.html' })
 
         .otherwise({
-            redirectTo: '/login'
+            controller: 'RedirectController', template: '', controllerAs: 'redirect'
         });
 }
 

@@ -2,7 +2,7 @@ let express = require( 'express' );
 let path = require( 'path' );
 let bodyParser = require( 'body-parser' );
 let session = require( 'express-session' );
-let guid = require( 'guid' );
+let guid = require( 'node-uuid' );
 let response = require( './response');
 
 let auth = require('./auth');
@@ -22,12 +22,12 @@ let clientRouter = require( './clients/clients' );
 
 let app = express();
 
+app.use( '/js/', express.static( path.join(config.rootDir, config.staticDir) ) );
+app.use( '/css/', express.static( path.join(config.rootDir, '/node_modules/bootstrap/dist/' ) ) );
+app.use( '/fa/', express.static( path.join(config.rootDir, '/node_modules/font-awesome/') ) );
+
 configureMiddleware( app );
 configureRoutes( app );
-
-app.use( express.static( path.join(config.rootDir, config.staticDir) ) );
-app.use( express.static( path.join(config.rootDir, '/node_modules/bootstrap/dist/' ) ) );
-app.use( express.static( path.join(config.rootDir, '/node_modules/font-awesome') ) );
 
 function getIndex( request, response ) {
     response.sendFile( path.join( config.rootDir, 'index.html') );
@@ -52,14 +52,15 @@ function configureRoutes( app ) {
     app.use( '/api/tasks', taskRouter );
     app.use( '/api/clients', clientRouter );
 
-    app.post( '/login', auth.login );
-    app.post( '/logout', auth.logout );
-    app.post( '/register', auth.register );
+    app.post( '/auth/login', auth.login );
+    app.post( '/auth/logout', auth.logout );
+    app.post( '/auth/register', auth.register );
 
-    app.get( '/', getIndex );
     app.get( '/bike.ico', ( request, response ) => {
         response.sendFile( path.join(config.rootDir, config.favicon) );
     } );
+
+    app.get( '/*', getIndex );
 }
 
 function configureMiddleware( app ) {

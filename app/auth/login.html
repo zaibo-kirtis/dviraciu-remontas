@@ -4,6 +4,8 @@
             <div class="panel-heading">Prisijungimas</div>
 
             <div class="panel-body">
+                <div class="alert alert-danger" ng-show="login.error">{{login.error}}</div>
+
                 <form ng-submit="login.login()">
                     <div class="form-group">
                         <label for="username">El. paštas</label>
@@ -16,7 +18,7 @@
                     </div>
 
                     <button class="btn btn-success" type="submit">Prisijungti</button>
-                    <a class="btn btn-link" href="/#register">Registruotis</a>
+                    <a class="btn btn-link" href="/register">Registruotis</a>
                 </form>
             </div>
         </div>

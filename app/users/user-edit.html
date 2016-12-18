@@ -15,14 +15,14 @@
                             <label for="email">Email</label>
                             <input type="text"
                                    id="email"
-                                   ng-model="user.model.name"
+                                   ng-model="user.model.email"
                                    class="form-control"
                             />
                         </fieldset>
 
                         <fieldset class="form-group">
                             <label for="dateRegistered">Registracijos data</label>
-                            <input type="text"
+                            <input type="date"
                                    id="dateRegistered"
                                    ng-model="user.model.dateRegistered"
                                    class="form-control"
@@ -30,11 +30,38 @@
                         </fieldset>
 
                         <fieldset class="form-group">
-                            <label for="city">Registracijos data</label>
-                            <select ng-model="user.model.city"
+                            <label for="client">Klientas</label>
+                            <select ng-model="user.model.client"
                                     class="form-control"
-                                    id="city"
-                                    ng-options="at.id as at.name for at in client.clients">
+                                    id="client"
+                                    ng-options="at.id as at.first_name for at in user.clients">
+                            </select>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="admin">Administratorius</label>
+                            <select ng-model="user.model.admin"
+                                    class="form-control"
+                                    id="admin"
+                                    ng-options="at.id as at.first_name for at in user.admins">
+                            </select>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="accountant">Buhalteris</label>
+                            <select ng-model="user.model.accountant"
+                                    class="form-control"
+                                    id="accountant"
+                                    ng-options="at.id as at.first_name for at in user.accountants">
+                            </select>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="mechanic">Mechanikas</label>
+                            <select ng-model="user.model.mechanic"
+                                    class="form-control"
+                                    id="mechanic"
+                                    ng-options="at.id as at.first_name for at in user.mechanics">
                             </select>
                         </fieldset>
 

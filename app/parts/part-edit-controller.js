@@ -9,10 +9,6 @@ export function PartController( PartsService, MapsService, $routeParams, $locati
 
     this.submit = function submit() {
         self.clearError();
-        console.log(self.model.warrantyUntil);
-
-        self.model.warrantyUntil
-
         PartsService.savePart( self.model ).then( () => {
             $location.path( '/parts' );
         }, self.handleError );

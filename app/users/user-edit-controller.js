@@ -1,12 +1,12 @@
 /* @ngInject */
-export function UserController( UsersUser, MapsUser, $routeParams, $location, $controller ) {
+export function UserController( UsersService, MapsService, $routeParams, $location, $controller ) {
     let self = this;
     $controller('BaseController', { vm: self });
 
     this.submit = function submit() {
         self.clearError();
 
-        UsersUser.saveUser( self.model ).then( () => {
+        UsersService.saveUser( self.model ).then( () => {
             $location.path( '/users' );
         }, self.handleError );
     };
@@ -15,13 +15,26 @@ export function UserController( UsersUser, MapsUser, $routeParams, $location, $c
         self.clearError();
 
         if( $routeParams.id ) {
-            UsersUser.getUser( $routeParams.id ).then( response => {
+            UsersService.getUser( $routeParams.id ).then( response => {
+                self.model.dateRegistered = new Date(self.model.dateRegistered);
                 self.model = response.data;
             }, self.handleError );
         }
 
-        MapsUser.getCities().then( response => {
-            self.cities = response.data;
+        MapsService.getClients().then( response => {
+            self.clients = response.data;
+        }, self.handleError );
+
+        MapsService.getAccountants().then( response => {
+            self.accountants = response.data;
+        }, self.handleError );
+
+        MapsService.getMechanics().then( response => {
+            self.mechanics = response.data;
+        }, self.handleError );
+
+        MapsService.getAdmins().then( response => {
+            self.admins = response.data;
         }, self.handleError );
     }
 

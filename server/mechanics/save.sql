@@ -7,6 +7,7 @@ insert into `mechanic` (
     date_hired,
     phone,
     birthdate,
+    date_last_payed,
     date_modified,
     service_id,
     sex_id
@@ -19,6 +20,7 @@ insert into `mechanic` (
     '{dateHired}',
     '{phone}',
     '{birthdate}',
+    '{dateLastPayed}',
     '{dateModified}',
     '{service}',
     '{sex}'
@@ -29,6 +31,7 @@ insert into `mechanic` (
     specialization = values(specialization),
     phone = values(phone),
     birthdate = values(birthdate),
+    date_last_payed = values(date_last_payed),
     date_modified = values(date_modified),
     service_id = values(service_id),
     sex_id = values(sex_id);

@@ -13,6 +13,7 @@
             <th>Pavardė</th>
             <th>Darbo trukmė</th>
             <th>Specializacija</th>
+            <th>Paskutinė algos gavimo data</th>
             <th>Įdarbinimo data</th>
             <th>Telefono numeris</th>
             <th>Gimimo data</th>
@@ -28,6 +29,7 @@
             <td>{{mechanic.lastName}}</td>
             <td>{{mechanic.workHours}}</td>
             <td>{{mechanic.specialization}}</td>
+            <td>{{mechanic.dateLastPayed | date : 'yyyy-MM-dd'}}</td>
             <td>{{mechanic.dateHired | date : 'yyyy-MM-dd'}}</td>
             <td>{{mechanic.phone}}</td>
             <td>{{mechanic.birthdate | date : 'yyyy-MM-dd'}}</td>

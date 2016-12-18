@@ -22,12 +22,12 @@
         <tr ng-repeat="user in users.list">
 
             <td>{{user.email}}</td>
-            <td>{{user.lastLoggedIn}}</td>
-            <td>{{user.dateRegistered}}</td>
-            <td>{{user.clientId}}</td>
-            <td>{{user.adminId}}</td>
-            <td>{{user.mechanicId}}</td>
-            <td>{{user.accountantId}}</td>
+            <td>{{user.lastLoggedIn | date : 'yyyy-MM-dd hh:mm'}}</td>
+            <td>{{user.dateRegistered | date : 'yyyy-MM-dd'}}</td>
+            <td><div class="text-center" ng-if="user.clientId !== null"><i class="fa fa-check"></i></div></td>
+            <td><div class="text-center" ng-if="user.adminId !== null"><i class="fa fa-check"></i></div></td>
+            <td><div class="text-center" ng-if="user.mechanicId !== null"><i class="fa fa-check"></i></div></td>
+            <td><div class="text-center" ng-if="user.accountantId !== null"><i class="fa fa-check"></i></div></td>
             <td><i class="fa fa-trash"></i></td>
             <td><a ng-href="/#user/{{user.id}}"><i class="fa fa-pencil-square-o"></i></a></td>
         </tr>

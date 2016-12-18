@@ -4,7 +4,6 @@ import { toTime } from './filters/to-time';
 import { MapsService } from './services/maps';
 import { BaseController } from './controllers/base-controller';
 import { RedirectController } from './controllers/redirect-controller';
-import { menuItems } from './services/menu-items';
 
 export const CommonModule = 'CommonModule';
 
@@ -15,5 +14,4 @@ angular.module( CommonModule, [] )
     .directive( 'alert', AlertDirective )
     .filter( 'capitalize', capitalize )
     .filter( 'toTime', toTime )
-    .factory( 'MapsService', MapsService )
-    .value( 'MenuItems', menuItems);
+    .factory( 'MapsService', MapsService );

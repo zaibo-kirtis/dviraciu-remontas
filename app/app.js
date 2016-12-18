@@ -15,6 +15,7 @@ import { WagesModule } from "./wage/wages-module";
 import { UsersModule } from "./users/users-module";
 import { TasksModule } from "./tasks/tasks-module";
 import { ClientsModule } from "./clients/clients-module";
+import { MenuItems } from './menu-items';
 
 let BicycleSystem = angular.module( 'BicycleSystem', [
     'ngRoute',
@@ -35,5 +36,6 @@ let BicycleSystem = angular.module( 'BicycleSystem', [
     CommonModule
 ] )
     .controller( 'MenuController', MenuController )
+    .value( 'MenuItems', MenuItems )
     .config( BicycleSystemRouter )
     .run((AuthService) => AuthService.login());

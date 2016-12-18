@@ -1,4 +1,4 @@
-export let menuItems = [
+export let MenuItems = [
     { route: 'orders', display: 'Užsakymai', permissions: ['client', 'mechanic'] },
     { route: 'bikes', display: 'Dviračiai', permissions: ['client'] },
     { route: 'cities', display: 'Miestai', permissions: ['admin'] },
@@ -10,6 +10,5 @@ export let menuItems = [
     { route: 'wages', display: 'Algos', permissions: ['accountant'] },
     { route: 'clients', display: 'Klientai', permissions: ['admin'] },
     { route: 'users', display: 'Vartotojai', permissions: ['admin'] },
-    { route: 'tasks', display: 'Paslaugos', permissions: ['admin'] },
-
+    { route: 'tasks', display: 'Paslaugos', permissions: ['admin'] }
 ];

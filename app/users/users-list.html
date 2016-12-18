@@ -1,7 +1,7 @@
 <div class="container" style="margin-top: 12px">
     <alert message="users.error"></alert>
 
-    <a href="#user" class="btn btn-primary">
+    <a href="user" class="btn btn-primary">
         <span class="glyphicon glyphicon-plus"></span>
         <span>Pridėti vartotoją</span>
     </a>
@@ -29,7 +29,7 @@
             <td><div class="text-center" ng-if="user.mechanicId !== null"><i class="fa fa-check"></i></div></td>
             <td><div class="text-center" ng-if="user.accountantId !== null"><i class="fa fa-check"></i></div></td>
             <td><i class="fa fa-trash"></i></td>
-            <td><a ng-href="/#user/{{user.id}}"><i class="fa fa-pencil-square-o"></i></a></td>
+            <td><a ng-href="/user/{{user.id}}"><i class="fa fa-pencil-square-o"></i></a></td>
         </tr>
         </tbody>
     </table>

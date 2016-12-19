@@ -6,6 +6,10 @@ export function OrderController( OrdersService, MapsService, $routeParams, $loca
     this.submit = function submit() {
         self.clearError();
 
+        self.model.tasks = self.tasks
+            .filter(task => task.selected)
+            .map(task => task.id);
+
         OrdersService.saveOrder( self.model ).then( () => {
             $location.path( '/orders' );
         }, self.handleError );
@@ -17,21 +21,36 @@ export function OrderController( OrdersService, MapsService, $routeParams, $loca
         if( $routeParams.id ) {
             OrdersService.getOrder( $routeParams.id ).then( response => {
                 self.model = response.data;
+
+                let tasks = self.model.tasks || [];
+                self.tasks = [];
+
+                tasks.forEach(taskId => {
+                    self.tasks[taskId] = { id: taskId, selected: true };
+                });
+
             }, self.handleError );
         }
 
         $q.all([
-            MapsService.getOrderTypes(),
-            MapsService.getRecordLabels(),
-            MapsService.getArtists(),
-            MapsService.getDiscounts()
+            MapsService.getBikes(),
+            MapsService.getTasks(),
+            MapsService.getServices()
         ]).then( responses => {
-            self.orderTypes = responses[ 0 ].data;
-            self.recordLabels = responses[ 1 ].data;
-            self.artists = responses[ 2 ].data;
-            self.discounts = responses[ 3 ].data;
+            self.bikes = responses[ 0 ].data;
+            let tasks = responses[ 1 ].data;
+            self.services = responses[ 2 ].data;
+
+            self.tasks = self.tasks || [];
+
+            tasks.forEach(task => {
+                self.tasks[task.id] = self.tasks[task.id] || {};
+                self.tasks[task.id].id = task.id;
+                self.tasks[task.id].name = task.name;
+            });
         }, self.handleError );
     }
+
     getOrder();
 }
 

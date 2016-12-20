@@ -35,17 +35,22 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">Paslaugos</div>
                             <div class="panel-body">
-                                <fieldset class="form-group" ng-repeat="task in order.tasks" ng-if="task.id">
-                                    <label for="task-{{task.id}}">
-                                        <input ng-model="task.selected"
-                                               type="checkbox"
-                                               id="task-{{task.id}}"
-                                               ng-true-value="1"
-                                               ng-false-value="0"
-                                        >
-                                        {{task.name}}
-                                    </label>
-                                </fieldset>
+                                <builder model="order.model.tasks"
+                                         items-map="order.tasks"
+                                         builder-id="tasks"
+                                         add-label="Pridėti paslaugą">
+                                </builder>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default" ng-if=order.isAllowed(['mechanic'])>
+                            <div class="panel-heading">Dalys</div>
+                            <div class="panel-body">
+                                <builder model="order.model.parts"
+                                         items-map="order.parts"
+                                         builder-id="parts"
+                                         add-label="Pridėti dalį">
+                                </builder>
                             </div>
                         </div>
 

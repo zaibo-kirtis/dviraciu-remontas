@@ -8,7 +8,8 @@ let queries = {
     saveOrder: require( './save.sql' ),
     deleteOrder: require( './delete.sql' ),
     countOrders: require( './count.sql' ),
-    insertOrderTask: require( './insert-order-task.sql' )
+    insertOrderTask: require( './insert-order-task.sql' ),
+    insertOrderPart: require( './insert-order-part.sql' )
 };
 
 let ordersController = express.Router();
@@ -40,6 +41,7 @@ function getOrder( request, response ) {
             } else {
                 let order = rows[ 0 ][ 0 ];
                 order.tasks = rows[ 1 ].map( row => row.id );
+                order.parts = rows[ 2 ].map( row => row.id );
 
                 response.status( 200 );
                 response.send( order );
@@ -60,7 +62,9 @@ function saveOrder( req, res ) {
             res.status( 400 );
             res.send( error.message );
         } else {
-            let orderId = rows[ 1 ][ 0 ].orderId;
+            let orderId = rows[ 1 ][ 0 ].orderId || data.id;
+            data.tasks = data.tasks || [];
+            data.parts = data.parts || [];
 
             let promises = data.tasks.map( taskId => {
                 return new Promise( ( res, rej ) => {
@@ -73,6 +77,18 @@ function saveOrder( req, res ) {
                     } );
                 } );
             } );
+
+            promises.concat(data.parts.map( partId => {
+                return new Promise( ( res, rej ) => {
+                    db.query( queries.insertOrderPart, { partId, orderId }, ( error, rows ) => {
+                        if( error ) {
+                            rej( error );
+                        } else {
+                            res( rows );
+                        }
+                    });
+                });
+            }));
 
             Promise.all( promises ).then( () => {
                 res.status( 200 ).send();

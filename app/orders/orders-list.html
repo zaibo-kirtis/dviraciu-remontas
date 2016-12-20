@@ -1,7 +1,7 @@
 <div class="container" style="margin-top: 12px">
-    <alert message="orders.error"></alert>
+    <alert message="orders.error">{{orders.error}}</alert>
 
-    <a href="order" class="btn btn-primary">
+    <a href="order" class="btn btn-primary" ng-if="orders.isAllowed(['client'])">
         <span class="glyphicon glyphicon-plus"></span>
         <span>Naujas užsakymas</span>
     </a>
@@ -11,8 +11,12 @@
             <tr>
                 <th>Būsena</th>
                 <th>Rėmo numeris</th>
+                <th>Gamintojas</th>
+                <th>Modelis</th>
                 <th>Servisas</th>
-                <th>Data</th>
+                <th>Sukurtas</th>
+                <th>Modifikuotas</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -25,15 +29,33 @@
                         'label-success': order.orderStateId === 3
                     }">{{order.orderState}}</div>
 
-                    <div ng-if="order.urgent">Skubus</div>
+                    <div class="label label-primary" ng-if="order.urgent">Skubus</div>
                 </td>
 
                 <td>{{order.frameNumber}}</td>
+                <td>{{order.brand}}</td>
+                <td>{{order.model}}</td>
                 <td>{{order.service}}</td>
-                <td>{{order.dateCreated | date}}</td>
+                <td>{{order.dateCreated | date : 'yyyy-MM-dd' }}</td>
+                <td>{{order.dateModified | date: 'yyyy-MM-dd' }}</td>
 
                 <td>
-                    <a ng-href="/order/{{order.id}}"><i class="fa fa-edit"></i></a>
+                    <a ng-href="/order/{{order.id}}"
+                       class="btn btn-link btn-sm">
+                        <i class="fa fa-edit"></i>Redaguoti
+                    </a>
+
+                    <a ng-click="orders.deleteOrder(order)"
+                       ng-if="orders.isAllowed(['client'])"
+                       class="btn btn-link btn-sm">
+                        <i class="fa fa-trash"></i>Ištrinti
+                    </a>
+
+                    <a ng-href="#"
+                       ng-if="orders.isAllowed(['mechanic'])"
+                       class="btn btn-link btn-sm">
+                        <i class="fa fa-check"></i>Užbaigti
+                    </a>
                 </td>
             </tr>
         </tbody>

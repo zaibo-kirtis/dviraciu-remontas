@@ -1,7 +1,10 @@
 select
     o.id as id,
+    b.brand as brand,
+    b.model as model,
     urgent as urgent,
-    date_created as date,
+    date_modified as dateModified,
+    date_created as dateCreated,
     s.name as service,
     b.id as serviceId,
     b.frame_number as frameNumber,

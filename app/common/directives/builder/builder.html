@@ -1,0 +1,21 @@
+<div>
+    <fieldset class="form-group" ng-repeat="item in builder.model track by $index">
+        <label for="{{builder.id}}-{{item.id}}">{{item.name}}</label>
+
+        <div class="input-group">
+            <select id="{{builder.id}}-{{item.id}}"
+                    class="form-control"
+                    ng-options="i.id as i.name for i in builder.map"
+                    ng-model="builder.model[ $index ]"
+            ></select>
+
+            <span class="input-group-btn">
+                <button class="btn btn-default" ng-click="builder.removeItem( $index )" ><i class="fa fa-remove"></i></button>
+            </span>
+        </div>
+
+    </fieldset>
+
+
+    <button ng-click="builder.addItem()" class="btn btn-default">{{builder.addLabel}}</button>
+</div>

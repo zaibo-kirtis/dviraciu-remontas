@@ -43,7 +43,7 @@
                 ng-show="menu.isAllowed(i.permissions)"
             ><a ng-href="{{i.route}}">{{i.display}}</a></li>
 
-            <li ng-if="menu.loggedIn()"><a class="bg-danger" ng-click="menu.logout()">Atsijungti</a></li>
+            <li ng-if="menu.loggedIn()"><a class="bg-danger clickable" ng-click="menu.logout()">Atsijungti</a></li>
         </ul>
 
         <div ng-view></div>

@@ -11,6 +11,7 @@ export function MapsService( $http ) {
         getTasks: () => $http.get( 'api/maps/tasks' ),
         getAdmins: (  ) => $http.get( `/api/maps/admins` ),
         getMechanics: (  ) => $http.get( `/api/maps/mechanics` ),
-        getAccountants: (  ) => $http.get( `/api/maps/accountants` )
+        getAccountants: (  ) => $http.get( `/api/maps/accountants` ),
+        getParts: () => $http.get( '/api/maps/parts')
     }
 }

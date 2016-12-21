@@ -11,7 +11,7 @@
                         <div class="col-md-3">
                             <fieldset class="form-group">
                                 <label for="from">Nuo:</label>
-                                <input value={{wageReport.from}}
+                                <input value={{wagesReport.from}}
                                        type="date"
                                        id="from"
                                        ng-model="wage.model.from"
@@ -23,7 +23,7 @@
                         <div class="col-md-3">
                             <fieldset class="form-group">
                                 <label for="to">Iki:</label>
-                                <input value={{wageReport.to}}
+                                <input value={{wagesReport.to}}
                                        type="date"
                                        id="to"
                                        ng-model="wage.model.to"
@@ -34,7 +34,7 @@
 
                         <div class="col-md-3">
                             <br>
-                            <a ng-click="wageReport.submit()" class="btn btn-success">Rodyti ataskaitą</a>
+                            <a ng-click="wagesReport.submit()" class="btn btn-success">Rodyti ataskaitą</a>
                         </div>
 
                     </form>
@@ -43,16 +43,23 @@
 
             <table class="table">
                 <thead>
-
+                <tr>
+                    <th>Suma</th>
+                    <th>Dirbta valandų</th>
+                    <th>Patvirtinimo data</th>
+                    <th>Mokesčiai</th>
+                    <th>PVM</th>
+                    <th>Vardas Pavardė</th>
+                </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="wageReportDataRow in wagesReport.wageReport">
-                        <td>{{wage.sum}}</td>
-                        <td>{{wage.work_hours}}</td>
-                        <td>{{wage.date | date:'yyyy-MM-dd'}}</td>
-                        <td>{{wage.deductibles}}</td>
-                        <td>{{wage.pvm}}</td>
-                        <td>{{wage.first_name}} {{wage.last_name}}</td>
+                    <tr ng-repeat="wageDataRow in wagesReport.wagesReport">
+                        <td>{{wageDataRow.sum}}</td>
+                        <td>{{wageDataRow.work_hours}}</td>
+                        <td>{{wageDataRow.date | date:'yyyy-MM-dd'}}</td>
+                        <td>{{wageDataRow.deductibles}}</td>
+                        <td>{{wageDataRow.pvm}}</td>
+                        <td>{{wageDataRow.first_name}} {{wageDataRow.last_name}}</td>
                     </tr>
                 </tbody>
             </table>

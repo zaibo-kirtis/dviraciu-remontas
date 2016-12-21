@@ -2,17 +2,18 @@ let express = require( 'express' );
 let db = require( './../database' );
 
 let queries = {
-    getWageReport: require( './getReport.sql' )
+    getWagesReport: require( './getReport.sql' )
 };
 
-let WagesRoutes = express.Router();
+let WagesReportRoutes = express.Router();
 
-WagesReportRoutes.post( '/', getWageReport );
+WagesReportRoutes.post( '/', getWagesReport );
 
-function getWageReport( request, response ) {
+function getWagesReport( request, response ) {
     let accountantID = request.session.user.access.accountant;
     request.body.accountant_id = accountantID;
-    db.query( queries.getWageReport, request.body, ( error, rows ) => {
+
+    db.query( queries.getWagesReport, request.body, ( error, rows ) => {
         if( error ) {
             response.status( 400 );
             response.send( error.message );

@@ -2,15 +2,10 @@
 export function WageReportController($controller, WagesReportService) {
     let self = this;
     $controller('BaseController', { vm: self });
-    this.model = {
-        date: new Date()
-    };
     this.submit = function submit() {
-        debugger;
         self.clearError();
-
-        WagesReportService.getWageReport( self.model ).then( (response) => {
-            self.wageReport = response.data;
+        WagesReportService.getWagesReport( self.model ).then( (response) => {
+            self.wagesReport = response.data;
         }, self.handleError );
     };
 }

@@ -16,4 +16,5 @@ from `order` o
     join service s on o.service_id = s.id
     join order_state os on o.order_state_id = os.id
     left join receipt r on r.order_id = o.id
+    where b.client_id = {user_id}
 order by os.id asc

@@ -26,7 +26,10 @@ ordersController.delete( '/:id', deleteOrder );
 ordersController.post( '/:id/state', updateOrderState );
 
 function getOrders( request, response ) {
-    db.query( queries.getOrders, ( error, rows ) => {
+    let userID = request.session.user.clientId;
+    request.body.user_id = userID;
+
+    db.query( queries.getOrders,request.body, ( error, rows ) => {
         if( error ) {
             response.status( 400 );
             response.send( error.message );

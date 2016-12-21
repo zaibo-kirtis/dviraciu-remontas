@@ -4,5 +4,5 @@ select
     b.manufacturer as manufacturer,
     b.price as price,
     b.description as description,
-    b.warranty_until as warrantyUntil
+    b.warranty_for as warrantyUntil
 from `part` b

@@ -15,7 +15,7 @@ insert into `client` (
     '{phone}',
     '{birthdate}',
     '{dateRegistered}',
-    '{modified}',
+    NOW(),
     '{address}',
     '{sex}'
 ) on duplicate key update

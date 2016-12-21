@@ -53,6 +53,7 @@
                         <fieldset class="form-group">
                             <label for="phone">Telefono numeris</label>
                             <input type="text"
+                                   pattern="[0-9]*"
                                    id="phone"
                                    ng-model="client.model.phone"
                                    class="form-control"
@@ -86,10 +87,6 @@
                                    class="form-control"
                             />
                         </fieldset>
-
-
-
-
                         <fieldset class="form-group">
                         <label for="modified">Paskutinį kartą redaguota</label>
                         <input ng-disabled="true" type="date"

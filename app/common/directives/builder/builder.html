@@ -1,10 +1,7 @@
 <div>
     <fieldset class="form-group" ng-repeat="item in builder.model track by $index">
-        <label for="{{builder.id}}-{{item.id}}">{{item.name}}</label>
-
         <div class="input-group">
-            <select id="{{builder.id}}-{{item.id}}"
-                    class="form-control"
+            <select class="form-control clickable"
                     ng-options="i.id as i.name for i in builder.map"
                     ng-model="builder.model[ $index ]"
             ></select>

@@ -82,9 +82,9 @@ function saveOrder( req, res ) {
                         res();
                     }
                 } )
-            }));
+            } ) );
 
-            promises.concat( data.tasks.map( taskId => {
+            promises = promises.concat( data.tasks.map( taskId => {
                 return new Promise( ( res, rej ) => {
                     db.query( queries.insertOrderTask, { taskId, orderId }, ( error, rows ) => {
                         if( error ) {
@@ -96,7 +96,7 @@ function saveOrder( req, res ) {
                 } );
             } ) );
 
-            promises.concat( data.parts.map( partId => {
+            promises = promises.concat( data.parts.map( partId => {
                 return new Promise( ( res, rej ) => {
                     db.query( queries.insertOrderPart, { partId, orderId }, ( error, rows ) => {
                         if( error ) {
@@ -137,8 +137,8 @@ function updateOrderState( req, res ) {
             res.status( 400 );
             res.send( error.message );
         } else {
-            let currentState = parseInt(rows[ 0 ][ 0 ].orderStateId);
-            let newState = parseInt(req.query.to);
+            let currentState = parseInt( rows[ 0 ][ 0 ].orderStateId );
+            let newState = parseInt( req.query.to );
 
             if( newState - currentState !== 1 ) {
                 res.status( 400 );

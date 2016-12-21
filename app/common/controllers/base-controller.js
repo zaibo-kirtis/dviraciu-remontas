@@ -12,7 +12,7 @@ export function BaseController( vm, Session, AuthService, $location ) {
                 break;
             }
             default: {
-                vm.error = error.message;
+                vm.error = error.message || error;
             }
         }
     }

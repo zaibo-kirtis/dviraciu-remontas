@@ -14,9 +14,17 @@ export function OrderController( OrdersService, MapsService, $routeParams, $loca
     function getOrder() {
         self.clearError();
 
+        self.model = {
+            tasks: [],
+            parts: []
+        };
+
         if( $routeParams.id ) {
             OrdersService.getOrder( $routeParams.id ).then( response => {
                 self.model = response.data;
+
+                self.model.tasks = self.model.tasks || [];
+                self.model.parts = self.model.parts || [];
             }, self.handleError );
         }
 

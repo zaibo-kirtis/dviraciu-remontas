@@ -47,7 +47,7 @@
 
                 <td>
                     <a ng-href="/order/{{order.id}}"
-                       ng-if="order.orderStateId !== 3"
+                       ng-if="order.orderStateId !== 3 && orders.isAllowed(['mechanic'])"
                        class="btn btn-link btn-sm">
                         <i class="fa fa-edit"></i>Redaguoti
                     </a>

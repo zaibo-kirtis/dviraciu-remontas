@@ -1,9 +1,9 @@
-set @tasksPrice = select sum(price)
+set @partsPrice = select sum(price)
 from part_order
 join part on part.id = part_order.part_id
 where order_id = {orderId};
 
-set @partsPrice = select sum(price)
+set @tasksPrice = select sum(price)
 from task_order
 join task on task.id = task_order.task_id
 where order_id = {orderId};

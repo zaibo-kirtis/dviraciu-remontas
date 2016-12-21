@@ -49,25 +49,36 @@
                     <a ng-href="/order/{{order.id}}"
                        ng-if="order.orderStateId !== 3 && orders.isAllowed(['mechanic'])"
                        class="btn btn-link btn-sm">
-                        <i class="fa fa-edit"></i>Redaguoti
+                        <i class="fa fa-edit"></i>
+                        Redaguoti
                     </a>
 
                     <a ng-click="orders.deleteOrder(order)"
                        ng-if="orders.isAllowed(['client'])"
                        class="btn btn-link btn-sm">
-                        <i class="fa fa-trash"></i>Ištrinti
+                        <i class="fa fa-trash"></i>
+                        Ištrinti
                     </a>
 
                     <a ng-click="orders.begin(order)"
                        ng-if="orders.isAllowed(['mechanic']) && order.orderStateId === 1"
                        class="btn btn-link btn-sm">
-                        <i class="fa fa-play"></i>Pradėti
+                        <i class="fa fa-play"></i>
+                        Pradėti
                     </a>
 
                     <a ng-click="orders.complete(order)"
                        ng-if="orders.isAllowed(['mechanic']) && order.orderStateId === 2"
                        class="btn btn-link btn-sm">
-                        <i class="fa fa-check"></i>Užbaigti
+                        <i class="fa fa-check"></i>
+                        Užbaigti
+                    </a>
+
+                    <a ng-href="/receipts/{{order.receiptId}}"
+                       ng-if="orders.isAllowed(['client']) && order.receiptId"
+                       class="btn btn-link btn-sm">
+                        <i class="fa fa-credit-card"></i>
+                        Sąskaita
                     </a>
                 </td>
             </tr>

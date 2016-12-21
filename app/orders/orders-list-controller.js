@@ -1,5 +1,5 @@
 /* @ngInject */
-export function OrdersController( OrdersService, $controller, $location ) {
+export function OrdersController( OrdersService, $controller ) {
     let self = this;
     $controller('BaseController', { vm: self });
 
@@ -24,10 +24,8 @@ export function OrdersController( OrdersService, $controller, $location ) {
     this.complete = function completeOrder( order ) {
         self.clearError();
 
-        OrdersService.completeOrder( order ).then( ( response ) => {
-            let receiptId = response.data;
-
-            $location.path( `/receipt/${receiptId}`, );
+        OrdersService.completeOrder( order ).then( () => {
+            getOrders();
         });
     };
 

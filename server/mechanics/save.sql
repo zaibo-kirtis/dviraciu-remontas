@@ -21,7 +21,7 @@ insert into `mechanic` (
     '{phone}',
     '{birthdate}',
     '{dateLastPayed}',
-    '{dateModified}',
+    NOW(),
     '{service}',
     '{sex}'
 ) on duplicate key update

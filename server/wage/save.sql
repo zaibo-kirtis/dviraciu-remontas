@@ -30,8 +30,8 @@ insert into `wage` (
     mechanic_id = values(mechanic_id);
 
 update `mechanic`
-set date_last_payed = curdate()
+set date_last_payed = NOW()
 where id = {id};
 
 insert into `advance_payment` (sum, date, comment, wage_id)
-values ({sum}, curdate(), '{comment}', {id});
+values ({sum}, NOW(), '{comment}', {id});

@@ -9,7 +9,7 @@ export function ClientController( ClientsService, MapsService, $routeParams, $lo
     };
     this.submit = function submit() {
         self.clearError();
-        self.model.modified = Date.now().toString();
+        self.model.modified = Date.now();
         ClientsService.saveClient( self.model ).then( () => {
             $location.path( '/clients' );
         }, self.handleError );

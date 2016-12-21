@@ -17,6 +17,7 @@ export function BicycleSystemRouter( $routeProvider, $locationProvider ) {
 
         .when( '/login', { controller: 'LoginController', controllerAs: 'login', templateUrl: 'login.html' } )
         .when( '/register', { controller: 'RegisterController', controllerAs: 'register', templateUrl: 'register.html' })
+        .when( '/wages-report', { controller: 'WageReportController', controllerAs: 'wagesReport', templateUrl: 'wages-report-edit.html' })
 
         .otherwise({
             controller: 'RedirectController', template: '', controllerAs: 'redirect'

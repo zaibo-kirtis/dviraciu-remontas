@@ -10,5 +10,6 @@ export let MenuItems = [
     { route: 'wages', display: 'Algos', permissions: ['accountant'] },
     { route: 'clients', display: 'Klientai', permissions: ['admin'] },
     { route: 'users', display: 'Vartotojai', permissions: ['admin'] },
-    { route: 'tasks', display: 'Paslaugos', permissions: ['admin'] }
+    { route: 'tasks', display: 'Paslaugos', permissions: ['admin'] },
+    { route: 'wages-report', display: 'Algų ataskaita', permissions: ['accountant'] }
 ];

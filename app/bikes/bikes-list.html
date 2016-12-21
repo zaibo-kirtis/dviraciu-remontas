@@ -28,7 +28,7 @@
                 <td>{{bike.wheelRadius}}"</td>
                 <td>{{bike.color}}</td>
                 <td>{{bike.description}}</td>
-                <td><i class="fa fa-trash"></i></td>
+                <td><a ng-click="bikes.deleteBike(bike)"><i class="fa fa-trash"></i></a></td>
                 <td><a ng-href="/bike/{{bike.id}}"><i class="fa fa-pencil-square-o"></i></a></td>
             </tr>
         </tbody>

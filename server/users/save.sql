@@ -17,4 +17,4 @@ insert into `user` (
     client_id = values(client_id),
     admin_id = values(admin_id),
     mechanic_id = values(mechanic_id),
-    accountant_id = values(accountant_id),
+    accountant_id = values(accountant_id)

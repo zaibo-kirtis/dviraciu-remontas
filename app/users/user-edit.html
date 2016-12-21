@@ -33,7 +33,7 @@
                         </fieldset>
 
                         <fieldset class="form-group">
-                            <label for="client">Klientas</label>
+                            <label for="client">Klientas {{user.model.clientId}}</label>
                             <select ng-model="user.model.clientId"
                                     class="form-control"
                                     id="client"
@@ -42,7 +42,7 @@
                         </fieldset>
 
                         <fieldset class="form-group">
-                            <label for="admin">Administratorius</label>
+                            <label for="admin">Administratorius {{user.model.adminId}}</label>
                             <select ng-model="user.model.adminId"
                                     class="form-control"
                                     id="admin"
@@ -51,7 +51,7 @@
                         </fieldset>
 
                         <fieldset class="form-group">
-                            <label for="accountant">Buhalteris</label>
+                            <label for="accountant">Buhalteris {{user.model.accountantId}}</label>
                             <select ng-model="user.model.accountantId"
                                     class="form-control"
                                     id="accountant"
@@ -60,7 +60,7 @@
                         </fieldset>
 
                         <fieldset class="form-group">
-                            <label for="mechanic">Mechanikas</label>
+                            <label for="mechanic">Mechanikas {{user.model.mechanicId}}</label>
                             <select ng-model="user.model.mechanicId"
                                     class="form-control"
                                     id="mechanic"

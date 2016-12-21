@@ -3,6 +3,7 @@ select
     bike_id as bike,
     service_id as service,
     urgent as urgent,
+    order_state_id as orderStateId,
     comment as comment
 from `order` where `order`.id = {id};
 

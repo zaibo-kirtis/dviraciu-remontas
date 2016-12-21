@@ -6,6 +6,12 @@
         <span>Naujas užsakymas</span>
     </a>
 
+    <button class="btn btn-default"
+            ng-class="{ active: orders.hideDone }"
+            ng-click="orders.hideDone = !orders.hideDone">
+        Slėpti užbaigtus užsakymus
+    </button>
+
     <table class="table table-hover">
         <thead>
             <tr>
@@ -20,7 +26,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="order in orders.list">
+            <tr ng-repeat="order in orders.list" ng-if="!orders.hideDone || order.orderStateId !== 3">
 
                 <td>
                     <div class="label" ng-class="{
@@ -41,6 +47,7 @@
 
                 <td>
                     <a ng-href="/order/{{order.id}}"
+                       ng-if="order.orderStateId !== 3"
                        class="btn btn-link btn-sm">
                         <i class="fa fa-edit"></i>Redaguoti
                     </a>
@@ -51,8 +58,14 @@
                         <i class="fa fa-trash"></i>Ištrinti
                     </a>
 
-                    <a ng-href="#"
-                       ng-if="orders.isAllowed(['mechanic'])"
+                    <a ng-click="orders.begin(order)"
+                       ng-if="orders.isAllowed(['mechanic']) && order.orderStateId === 1"
+                       class="btn btn-link btn-sm">
+                        <i class="fa fa-play"></i>Pradėti
+                    </a>
+
+                    <a ng-click="orders.complete(order)"
+                       ng-if="orders.isAllowed(['mechanic']) && order.orderStateId === 2"
                        class="btn btn-link btn-sm">
                         <i class="fa fa-check"></i>Užbaigti
                     </a>

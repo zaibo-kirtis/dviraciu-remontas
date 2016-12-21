@@ -4,7 +4,7 @@ insert into `part` (
     manufacturer,
     price,
     description,
-    warranty_until
+    warranty_for
 ) values (
     '{id}',
     '{name}',

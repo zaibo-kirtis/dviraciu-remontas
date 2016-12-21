@@ -51,10 +51,12 @@
                         </fieldset>
 
                         <fieldset class="form-group">
-                            <label for="warranty-until">Garantija iki</label>
-                            <input type="date"
-                                   id="warranty-until"
-                                   ng-model="part.model.warrantyUntil"
+                            <label for="warranty-for">Garantija (mėnesiais)</label>
+                            <input type="text"
+                                   pattern="[0-9]"
+                                   required
+                                   id="warranty-for"
+                                   ng-model="part.model.warrantyFor"
                                    class="form-control"
                             />
                         </fieldset>

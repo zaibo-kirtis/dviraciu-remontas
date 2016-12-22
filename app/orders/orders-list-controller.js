@@ -32,7 +32,7 @@ export function OrdersController( OrdersService, $controller ) {
     function getOrders() {
         self.clearError();
 
-        OrdersService.getOrders().then( ( response ) => {
+        OrdersService.getOrders().then( (response ) => {
             self.list = response.data;
         }, self.handleError );
     }

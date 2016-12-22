@@ -19,6 +19,7 @@ bikesRoutes.delete( '/:id', deleteBike );
 function getBikes( request, response ) {
     let userID = request.session.user.clientId;
     request.body.user_id = userID;
+
     db.query( queries.getBikes,request.body, ( error, rows ) => {
         if( error ) {
             response.status( 400 );

@@ -1,5 +1,5 @@
 /* @ngInject */
-export function OrderController( OrdersService, MapsService, $routeParams, $location, $controller, $q ) {
+export function OrderController( OrdersService, BikesService, MapsService, $routeParams, $location, $controller, $q ) {
     let self = this;
     $controller( 'BaseController', { vm: self });
 
@@ -27,9 +27,8 @@ export function OrderController( OrdersService, MapsService, $routeParams, $loca
                 self.model.parts = self.model.parts || [];
             }, self.handleError );
         }
-
         $q.all([
-            MapsService.getBikes(),
+            BikesService.getBikes(),
             MapsService.getTasks(),
             MapsService.getParts(),
             MapsService.getServices()

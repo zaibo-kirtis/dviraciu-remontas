@@ -3,7 +3,9 @@ let db = require( './../database' );
 let response = require( '../response' );
 
 let queries = {
-    getOrders: require( './get-all.sql' ),
+    getOrdersForClient: require( './get-all-for-client.sql' ),
+    getOrdersForMechanic: require( './get-all-for-mechanic.sql' ),
+    getOrdersForMechanicPlusClient: require( './get-all-for-client-mechanic.sql' ),
     getOrder: require( './get.sql' ),
     saveOrder: require( './save.sql' ),
     deleteOrder: require( './delete.sql' ),
@@ -27,9 +29,32 @@ ordersController.post( '/:id/state', updateOrderState );
 
 function getOrders( request, response ) {
     let userID = request.session.user.clientId;
-    request.body.user_id = userID;
+    let query = "";
 
-    db.query( queries.getOrders,request.body, ( error, rows ) => {
+    if(userID !== null){
+        if(request.session.user.mechanicId !== null) {
+            // client + mechanic query
+            query = queries.getOrdersForMechanicPlusClient;
+            userID = request.session.user.mechanicId;
+
+            request.body.mechanic_id = userID;
+            request.body.user_id = request.session.user.clientId;
+        }
+        else{
+            // client only query
+            query = queries.getOrdersForClient;
+            userID = request.session.user.clientId;
+            request.body.user_id = userID;
+        }
+    }
+    else{
+        // mechanic only query nx
+        query = queries.getOrdersForMechanic;
+        userID =request.session.user.mechanicId;
+        request.body.mechanic_id = userID;
+    }
+
+    db.query( query,request.body, ( error, rows ) => {
         if( error ) {
             response.status( 400 );
             response.send( error.message );

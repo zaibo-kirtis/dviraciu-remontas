@@ -17,7 +17,9 @@ bikesRoutes.post( '/', saveBike );
 bikesRoutes.delete( '/:id', deleteBike );
 
 function getBikes( request, response ) {
-    db.query( queries.getBikes, ( error, rows ) => {
+    let userID = request.session.user.clientId;
+    request.body.user_id = userID;
+    db.query( queries.getBikes,request.body, ( error, rows ) => {
         if( error ) {
             response.status( 400 );
             response.send( error.message );

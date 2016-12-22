@@ -1,1 +1,1 @@
-delete from users where id = {id}
+delete from `user` where id = {id}

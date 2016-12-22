@@ -65,7 +65,7 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="job in jobsReport.report">
-                        <td>{{job.cost | currency}}</td>
+                        <td>{{job.cost | currency : "€"}}</td>
                         <td>{{job.first_name}} {{job.last_name}}</td>
                         <td>{{job.start | date: 'yyyy-MM-dd HH:mm'}}</td>
                         <td>{{job.end | date: 'yyyy-MM-dd HH:mm'}}</td>

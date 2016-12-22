@@ -32,7 +32,7 @@
             <td>{{accountant.dateHired | date : 'yyyy-MM-dd'}}</td>
             <td>{{accountant.birthdate | date : 'yyyy-MM-dd'}}</td>
             <td>{{accountant.modified | date : 'yyyy-MM-dd'}}</td>
-            <td><i class="fa fa-trash"></i></td>
+            <td><a ng-click="accountants.deleteAccountant(accountant)"class="btn btn-link btn-sm"><i class="fa fa-trash"></i></a></td>
             <td><a ng-href="/accountant/{{accountant.id}}"><i class="fa fa-pencil-square-o"></i></a></td>
         </tr>
         </tbody>

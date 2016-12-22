@@ -18,9 +18,9 @@
             <tr ng-repeat="task in tasks.list">
 
                 <td>{{task.name}}</td>
-                <td>{{task.price | currency}}</td>
+                <td>{{task.price | currency : "€"}}</td>
                 <td>{{task.description}}</td>
-                <td><i class="fa fa-trash"></i></td>
+                <td><a ng-click="tasks.deleteTask(task)"class="btn btn-link btn-sm"><i class="fa fa-trash"></i></a></td>
                 <td><a ng-href="/task/{{task.id}}"><i class="fa fa-pencil-square-o"></i></a></td>
             </tr>
         </tbody>

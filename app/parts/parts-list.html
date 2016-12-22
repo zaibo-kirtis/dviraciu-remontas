@@ -21,10 +21,10 @@
 
                 <td>{{part.name}}</td>
                 <td>{{part.manufacturer}}</td>
-                <td>{{part.price | currency}}</td>
+                <td>{{part.price | currency : "€"}}</td>
                 <td>{{part.warrantyFor}}</td>
                 <td>{{part.description}}</td>
-                <td><i class="fa fa-trash"></i></td>
+                <td><a ng-click="parts.deletePart(part)"class="btn btn-link btn-sm"><i class="fa fa-trash"></i></a></td>
                 <td><a ng-href="/part/{{part.id}}"><i class="fa fa-pencil-square-o"></i></a></td>
             </tr>
         </tbody>

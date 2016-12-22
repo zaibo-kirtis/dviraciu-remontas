@@ -7,7 +7,8 @@ insert into `bike` (
     wheel_radius,
     color,
     description,
-    client_id
+    client_id,
+    date_added
 ) values (
     '{id}',
     {frameNumber},
@@ -17,7 +18,8 @@ insert into `bike` (
     {wheelRadius},
     '{color}',
     '{description}',
-    {clientId}
+    {clientId},
+    NOW()
 ) on duplicate key update
     frame_number = values(frame_number),
     brand = values(brand),

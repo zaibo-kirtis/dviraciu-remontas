@@ -44,13 +44,17 @@
             <table class="table">
                 <thead>
                 <tr>
+                    <th>Užsakymo numeris</th>
+                    <th>Užsakymo sudarymo data</th>
                     <th>Suma</th>
-                    <th>Garantija</th>
+                    <th>Garantija (mėn.)</th>
                     <th>Pavadinimas modelis</th>
                 </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="partDataRow in partsReport.partsReport">
+                        <td>{{partDataRow.order_id}}</td>
+                        <td>{{partDataRow.date_created | date:'yyyy-MM-dd'}}</td>
                         <td>{{partDataRow.price}}</td>
                         <td>{{partDataRow.warrantyFor}}</td>
                         <td>{{partDataRow.name}} {{partDataRow.manufacturer}}</td>

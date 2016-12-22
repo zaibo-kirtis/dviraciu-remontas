@@ -1,3 +1,5 @@
+<form ng-submit="service.submit()">
+
 <div class="container" style="margin-top: 12px" xmlns="">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -13,10 +15,10 @@
                 </div>
 
                 <div class="panel-body">
-                    <form>
                         <fieldset class="form-group">
                             <label for="name">Pavadinimas</label>
                             <input type="text"
+                                   required
                                    id="name"
                                    ng-model="service.model.name"
                                    class="form-control"
@@ -26,6 +28,7 @@
                         <fieldset class="form-group">
                             <label for="address">Adresas</label>
                             <input type="text"
+                                   required
                                    id="address"
                                    ng-model="service.model.address"
                                    class="form-control"
@@ -35,6 +38,7 @@
                         <fieldset class="form-group">
                             <label for="workStartTime">Darbo pradžia</label>
                             <input type="text"
+                                   required
                                    id="workStartTime"
                                    ng-model="service.model.workStartTime"
                                    class="form-control"
@@ -44,6 +48,7 @@
                         <fieldset class="form-group">
                             <label for="workStopTime">Darbo pabaiga</label>
                             <input type="text"
+                                   required
                                    id="workStopTime"
                                    ng-model="service.model.workStopTime"
                                    class="form-control"
@@ -52,6 +57,7 @@
                         <fieldset class="form-group">
                             <label for="email">El. paštas</label>
                             <input type="email"
+                                   required
                                    id="email"
                                    ng-model="service.model.email"
                                    class="form-control"
@@ -61,6 +67,7 @@
                         <fieldset class="form-group">
                             <label for="phone">Telefonas</label>
                             <input type="text"
+                                   required
                                    id="phone"
                                    ng-model="service.model.phone"
                                    class="form-control"
@@ -75,14 +82,13 @@
                                     ng-options="at.id as at.name for at in service.cities">
                             </select>
                         </fieldset>
-                    </form>
-                </div>
 
+                </div>
                 <div class="panel-footer">
-                    <a ng-click="service.submit()" class="btn btn-success">Išsaugoti</a>
+                    <button type="submit" class="btn btn-success">Išsaugoti</button>
                     <a href="services" class="btn btn-default">Atšaukti</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</div>                    </form>

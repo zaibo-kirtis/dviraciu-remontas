@@ -1,22 +1,19 @@
+<form ng-submit="accountant.submit()">
 <div class="container" style="margin-top: 12px" xmlns="">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
 
             <alert message="accountant.error"></alert>
-
             <div class="panel panel-default">
                 <div ng-if="!accountant.model.id" class="panel-heading">
                     Naujas buhalteris
                 </div>
-                <div ng-if="accountant.model.id" class="panel-heading">
-                    Buhalterio redagavimas
-                </div>
+                    <div ng-if="accountant.model.id" class="panel-heading">
+                        Buhalterio redagavimas
+                    </div>
 
                 <div class="panel-body">
-                    <div class="alert alert-danger" ng-show="login.error">{{login.error}}</div>
-
-                    <form>
-                        <fieldset class="form-group">
+                    <fieldset class="form-group">
                             <label for="first-name">Vardas</label>
                             <input type="text"
                                    required
@@ -111,14 +108,14 @@
                         />
                         </fieldset>
 
-                    </form>
                 </div>
-
                 <div class="panel-footer">
-                    <a ng-click="accountant.submit()" class="btn btn-success">Išsaugoti</a>
+                    <button type="submit" class="btn btn-success">Išsaugoti</button>
                     <a href="accountants" class="btn btn-default">Atšaukti</a>
                 </div>
             </div>
         </div>
-        </div>
-        </div>
+    </div>
+</div>
+</form>
+

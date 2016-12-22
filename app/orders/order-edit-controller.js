@@ -38,6 +38,7 @@ export function OrderController( OrdersService, BikesService, MapsService, $rout
             self.parts = responses[ 2 ].data;
             self.services = responses[ 3 ].data;
         }, self.handleError );
+
     }
 
     getOrder();

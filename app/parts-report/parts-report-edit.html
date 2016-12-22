@@ -1,0 +1,62 @@
+<div class="container" style="margin-top: 12px" xmlns="">
+    <div class="row">
+
+            <alert message="part.error"></alert>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Įveskite norimą intervalą:</div>
+
+                <div class="panel-body row">
+                    <form>
+                        <div class="col-md-3">
+                            <fieldset class="form-group">
+                                <label for="from">Nuo:</label>
+                                <input
+                                       type="date"
+                                       id="from"
+                                       ng-model="partsReport.model.from"
+                                       class="form-control"
+                                />
+                            </fieldset>
+                        </div>
+
+                        <div class="col-md-3">
+                            <fieldset class="form-group">
+                                <label for="to">Iki:</label>
+                                <input
+                                       type="date"
+                                       id="to"
+                                       ng-model="partsReport.model.to"
+                                       class="form-control"
+                                />
+                            </fieldset>
+                        </div>
+
+                        <div class="col-md-3">
+                            <br>
+                            <a ng-click="partsReport.submit()" class="btn btn-success">Rodyti ataskaitą</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Suma</th>
+                    <th>Garantija</th>
+                    <th>Pavadinimas modelis</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="partDataRow in partsReport.partsReport">
+                        <td>{{partDataRow.price}}</td>
+                        <td>{{partDataRow.warrantyFor}}</td>
+                        <td>{{partDataRow.name}} {{partDataRow.manufacturer}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+    </div>
+</div>

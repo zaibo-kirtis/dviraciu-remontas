@@ -3,6 +3,7 @@ let db = require( './../database' );
 
 let queries = {
     getBikes: require( './get-all.sql' ),
+    getBikesForClient: require( './get-all-for-client.sql' ),
     getBike: require( './get.sql' ),
     saveBike: require( './save.sql' ),
     deleteBike: require( './delete.sql' ),
@@ -17,10 +18,9 @@ bikesRoutes.post( '/', saveBike );
 bikesRoutes.delete( '/:id', deleteBike );
 
 function getBikes( request, response ) {
-    let userID = request.session.user.clientId;
-    request.body.user_id = userID;
+    if(request.session.user.mechanicId !== null){
 
-    db.query( queries.getBikes,request.body, ( error, rows ) => {
+    db.query( queries.getBikes, ( error, rows ) => {
         if( error ) {
             response.status( 400 );
             response.send( error.message );
@@ -28,6 +28,20 @@ function getBikes( request, response ) {
             response.send( rows );
         }
     } );
+    }
+    else{
+        let userID = request.session.user.clientId;
+        request.body.user_id = userID;
+
+        db.query( queries.getBikesForClient,request.body, ( error, rows ) => {
+            if( error ) {
+                response.status( 400 );
+                response.send( error.message );
+            } else {
+                response.send( rows );
+            }
+        } );
+    }
 }
 
 function getBike( request, response ) {

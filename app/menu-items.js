@@ -11,5 +11,6 @@ export let MenuItems = [
     { route: 'users', display: 'Vartotojai', permissions: ['admin'] },
     { route: 'tasks', display: 'Paslaugos', permissions: ['admin'] },
     { route: 'wages-report', display: 'Algų ataskaita', permissions: ['accountant'] },
-    { route: 'receipts-report', display: 'Sąskaitų ataskaita', permissions: ['accountant'] }
+    { route: 'receipts-report', display: 'Sąskaitų ataskaita', permissions: ['accountant'] },
+    { route: 'parts-report', display: 'Detalių ataskaita', permissions: ['accountant'] }
 ];

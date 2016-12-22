@@ -22,6 +22,7 @@ let clientRouter = require( './clients/clients' );
 let receiptRouter = require( './receipts/receipts' );
 let wagesReportRouter = require( './wage-report/wage-report' );
 let receiptsReportRouter = require( './receipt-report/receipt-report' );
+let partsReportRouter = require( './part-report/part-report' );
 
 let app = express();
 
@@ -57,6 +58,7 @@ function configureRoutes( app ) {
     app.use( '/api/receipts', receiptRouter );
     app.use( '/api/wages-report', wagesReportRouter );
     app.use( '/api/receipts-report', receiptsReportRouter );
+    app.use( '/api/parts-report', partsReportRouter );
 
     app.post( '/auth/login', auth.login );
     app.post( '/auth/logout', auth.logout );

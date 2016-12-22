@@ -20,6 +20,7 @@ export function BicycleSystemRouter( $routeProvider, $locationProvider ) {
         .when( '/register', { controller: 'RegisterController', controllerAs: 'register', templateUrl: 'register.html' })
         .when( '/wages-report', { controller: 'WageReportController', controllerAs: 'wagesReport', templateUrl: 'wages-report-edit.html' })
         .when( '/receipts-report', { controller: 'ReceiptReportController', controllerAs: 'receiptsReport', templateUrl: 'receipts-report-edit.html' })
+        .when( '/parts-report', { controller: 'PartReportController', controllerAs: 'partsReport', templateUrl: 'parts-report-edit.html' })
 
         .otherwise({
             controller: 'RedirectController', template: '', controllerAs: 'redirect'

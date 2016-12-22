@@ -8,6 +8,7 @@ let helpers = {
             .replace( /'{(\w*)}'/g, ( match, key ) => object[ key ] ? `'${object[ key ]}'` : null )
             .replace( /{(\w*)}/g, ( match, key ) => object[ key ] || null );
 
+        console.log(query);
         return query;
     },
 

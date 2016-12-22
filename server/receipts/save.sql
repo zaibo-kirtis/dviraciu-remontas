@@ -17,7 +17,7 @@ where `order`.id = {orderId}
 group by client_id);
 
 insert into receipt (id, client_id, comment, date_created, date_to_be_paid, order_id, receipt_state_id, sum)
-values({id}, @client_id, {comment}, NOW(), NOW(), {orderId}, 1, @orderPrice) on duplicate key update
+values({id}, @client_id, {comment}, NOW(), NOW(), {orderId}, 1, @totalPrice) on duplicate key update
 id = last_insert_id(id),
 client_id = values(client_id),
 comment = values(comment),

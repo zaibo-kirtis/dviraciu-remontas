@@ -22,8 +22,8 @@ export function PaymentController( PaymentsService, MapsService, $routeParams, $
             }, self.handleError );
         }
 
-        MapsService.getFrameTypes().then( response => {
-            self.frameTypes = response.data;
+        MapsService.getReceipts().then( response => {
+            self.receipts = response.data;
         }, self.handleError );
     }
 

@@ -16,6 +16,7 @@ mapsController.get( '/tasks', getMapGetter( 'task', 'id', 'name' ) );
 mapsController.get( '/admins', getFirstAndLastNames( 'admin', 'id', 'first_name', 'last_name' ) );
 mapsController.get( '/accountants', getFirstAndLastNames( 'accountant', 'id', 'first_name', 'last_name' ) );
 mapsController.get( '/clients', getFirstAndLastNames( 'client', 'id', 'first_name', 'last_name' ) );
+mapsController.get( '/receipts', getMapGetter( 'receipt', 'id', 'id' ) );
 
 function getMapGetter( entity, idColumn, nameColumn ) {
     return ( request, response ) => {

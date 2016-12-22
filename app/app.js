@@ -17,6 +17,7 @@ import { TasksModule } from "./tasks/tasks-module";
 import { ClientsModule } from "./clients/clients-module";
 import { MenuItems } from './menu-items';
 import { WagesReportModule } from "./wage-report/wages-report-module";
+import { ReceiptsReportModule } from "./receipt-report/receipts-report-module";
 import { ReceiptsModule } from './receipts/receipts-module';
 
 let BicycleSystem = angular.module( 'BicycleSystem', [
@@ -35,6 +36,7 @@ let BicycleSystem = angular.module( 'BicycleSystem', [
     ClientsModule,
     ReceiptsModule,
     WagesReportModule,
+    ReceiptsReportModule,
 
     AuthModule,
     CommonModule

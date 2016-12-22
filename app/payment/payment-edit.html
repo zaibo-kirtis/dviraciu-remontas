@@ -23,14 +23,16 @@
                             />
                         </fieldset>
 
+
                         <fieldset class="form-group">
                             <label for="receipt_id">Sąskaitos numeris</label>
-                            <input type="text"
-                                   id="receipt_id"
-                                   ng-model="payment.model.receipt_id"
-                                   class="form-control"
-                            />
+                            <select ng-model="payment.model.receipt_id"
+                                    class="form-control"
+                                    id="receipt_id"
+                                    ng-options="r.id as r.id for r in payment.receipts">
+                            </select>
                         </fieldset>
+
 
                         <fieldset class="form-group">
                             <label for="comment">Komentaras</label>

@@ -8,7 +8,7 @@ from task_order
 join task on task.id = task_order.task_id
 where order_id = {orderId});
 
-set @totalPrice = @tasksPrice + @partsPrice;
+set @totalPrice = ifnull(@tasksPrice, 0) + ifnull(@partsPrice, 0);
 
 set @client_id = (select client_id
 from `order`

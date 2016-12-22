@@ -21,6 +21,7 @@ import { ReceiptsReportModule } from "./receipt-report/receipts-report-module";
 import { PartsReportModule } from "./parts-report/parts-report-module";
 import { ReceiptsModule } from './receipts/receipts-module';
 import { AccountantsModule } from './accountants/accountants-module';
+import { JobsReportModule } from './jobs-report/jobs-report-module';
 
 let BicycleSystem = angular.module( 'BicycleSystem', [
     'ngRoute',
@@ -41,6 +42,7 @@ let BicycleSystem = angular.module( 'BicycleSystem', [
     ReceiptsReportModule,
     PartsReportModule,
     AccountantsModule,
+    JobsReportModule,
 
     AuthModule,
     CommonModule

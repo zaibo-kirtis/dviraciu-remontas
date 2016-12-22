@@ -8,7 +8,6 @@ let response = require( './response' );
 let auth = require( './auth' );
 let config = require( '../config' );
 let mapsRouter = require( './maps' );
-let reportsRouter = require( './reports/reports' );
 let albumsRouter = require( './orders/orders' );
 let bikesRouter = require( './bikes/bikes' );
 let usersRouter = require( './users/users' );
@@ -24,6 +23,7 @@ let wagesReportRouter = require( './wage-report/wage-report' );
 let receiptsReportRouter = require( './receipt-report/receipt-report' );
 let partsReportRouter = require( './part-report/part-report' );
 let accountantsRouter = require( './accountants/accountants' );
+let jobsReportRouter = require( './job-report/job-report' );
 
 let app = express();
 
@@ -44,7 +44,6 @@ function createGuid() {
 
 function configureRoutes( app ) {
     app.use( '/api/maps', mapsRouter );
-    app.use( '/api/reports', reportsRouter );
 
     app.use( '/api/users', usersRouter );
     app.use( '/api/orders', albumsRouter );
@@ -61,6 +60,7 @@ function configureRoutes( app ) {
     app.use( '/api/wages-report', wagesReportRouter );
     app.use( '/api/receipts-report', receiptsReportRouter );
     app.use( '/api/parts-report', partsReportRouter );
+    app.use( '/api/jobs-report', jobsReportRouter );
 
     app.post( '/auth/login', auth.login );
     app.post( '/auth/logout', auth.logout );

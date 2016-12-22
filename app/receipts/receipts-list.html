@@ -25,7 +25,7 @@
                 <td>{{receipt.order_id}}</td>
                 <td>{{receipt.first_name}} {{receipt.last_name}}</td>
                 <td>{{receipt.comment}}</td>
-                <td><i class="fa fa-trash"></i></td>
+                <td><a ng-click="receipt.deleteReceipt(receipt)"class="btn btn-link btn-sm"><i class="fa fa-trash"></i></a></td>
             </tr>
         </tbody>
     </table>

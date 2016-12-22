@@ -15,7 +15,9 @@ let queries = {
     cleanOrderRelations: require( './clean-relations.sql' ),
 
     updateState: require( './update-state.sql' ),
-    createReceipt: require( './../receipts/save.sql' )
+    createReceipt: require( './../receipts/save.sql' ),
+
+    createJob: require( '../job/save.sql' )
 };
 
 let ordersController = express.Router();
@@ -28,22 +30,22 @@ ordersController.delete( '/:id', deleteOrder );
 ordersController.post( '/:id/state', updateOrderState );
 
 function getOrders( request, response ) {
-    let userID = request.session.user.clientId;
+    let userID = request.session.user.access.client;
     let query = "";
 
     if(userID !== null){
-        if(request.session.user.mechanicId !== null) {
+        if(request.session.user.access.mechanic !== null) {
             // client + mechanic query
             query = queries.getOrdersForMechanicPlusClient;
-            userID = request.session.user.mechanicId;
+            userID = request.session.user.access.mechanic;
 
             request.body.mechanic_id = userID;
-            request.body.user_id = request.session.user.clientId;
+            request.body.user_id = request.session.user.access.client;
         }
         else{
             // client only query
             query = queries.getOrdersForClient;
-            userID = request.session.user.clientId;
+            userID = request.session.user.access.client;
             request.body.user_id = userID;
         }
     }
@@ -192,7 +194,18 @@ function updateOrderState( req, res ) {
                         res.status( 200 ).send( rows );
                     } )
                 } else {
-                    res.status( 200 ).send();
+                    let data = {
+                        orderId,
+                        mechanicId: req.session.user.access.mechanic
+                    };
+
+                    db.query( queries.createJob, data, (err) => {
+                        if(err) {
+                            res.status( 400 ).send(response(err.message));
+                        } else {
+                            res.status( 200 ).send();
+                        }
+                    });
                 }
             } );
         }

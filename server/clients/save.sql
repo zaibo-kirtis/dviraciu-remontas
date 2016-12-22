@@ -14,7 +14,7 @@ insert into `client` (
     '{lastName}',
     '{phone}',
     '{birthdate}',
-    '{dateRegistered}',
+    NOW(),
     NOW(),
     '{address}',
     '{sex}'
@@ -24,6 +24,5 @@ insert into `client` (
     phone = values(phone),
     address = values(address),
     birthdate = values(birthdate),
-    date_registered = values(date_registered),
     date_modified = values(date_modified),
     sex_id = values(sex_id);

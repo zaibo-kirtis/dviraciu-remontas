@@ -77,14 +77,7 @@
                             />
                         </fieldset>
 
-                        <fieldset class="form-group">
-                            <label for="date-hired">Įdarbinimo data</label>
-                            <input type="date"
-                                   id="date-hired"
-                                   ng-model="mechanic.model.dateHired"
-                                   class="form-control"
-                            />
-                        </fieldset>
+
 
                         <fieldset class="form-group">
                             <label for="work-hours">Darbo trukmė</label>
@@ -113,6 +106,15 @@
                                     id="service"
                                     ng-options="at.id as at.name for at in mechanic.services">
                             </select>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="date-hired">Įdarbinimo data</label>
+                            <input ng-disabled="true" type="date"
+                                   id="date-hired"
+                                   ng-model="mechanic.model.dateHired"
+                                   class="form-control"
+                            />
                         </fieldset>
 
                         <fieldset class="form-group">

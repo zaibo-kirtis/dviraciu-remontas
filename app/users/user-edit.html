@@ -24,8 +24,17 @@
                         </fieldset>
 
                         <fieldset class="form-group">
+                            <label for="password">Slaptažodis</label>
+                            <input type="password"
+                                   id="password"
+                                   ng-model="user.model.password"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <fieldset class="form-group">
                             <label for="dateRegistered">Registracijos data</label>
-                            <input type="date"
+                            <input ng-disabled="true" type="date"
                                    id="dateRegistered"
                                    ng-model="user.model.dateRegistered"
                                    class="form-control"

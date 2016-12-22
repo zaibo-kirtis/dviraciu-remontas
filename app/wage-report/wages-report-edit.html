@@ -56,7 +56,7 @@
                     <tr ng-repeat="wageDataRow in wagesReport.wagesReport">
                         <td>{{wageDataRow.sum}}</td>
                         <td>{{wageDataRow.work_hours}}</td>
-                        <td>{{wageDataRow.date | date:'yyyy-MM-dd'}}</td>
+                        <td>{{wageDataRow.date_confirmed | date:'yyyy-MM-dd'}}</td>
                         <td>{{wageDataRow.deductibles}}</td>
                         <td>{{wageDataRow.pvm}}</td>
                         <td>{{wageDataRow.first_name}} {{wageDataRow.last_name}}</td>

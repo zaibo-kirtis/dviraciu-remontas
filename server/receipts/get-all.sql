@@ -4,7 +4,7 @@ select
     receipt.date_to_be_paid as date_to_be_paid,
     receipt.comment as comment,
     receipt.order_id as order_id,
-    rs.id as receipt_state,
+    rs.name as receipt_state,
     ord.id as order_id,
     client.first_name as first_name,
     client.last_name as last_name

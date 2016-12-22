@@ -3,9 +3,9 @@ let path = require( 'path' );
 let bodyParser = require( 'body-parser' );
 let session = require( 'express-session' );
 let guid = require( 'node-uuid' );
-let response = require( './response');
+let response = require( './response' );
 
-let auth = require('./auth');
+let auth = require( './auth' );
 let config = require( '../config' );
 let mapsRouter = require( './maps' );
 let reportsRouter = require( './reports/reports' );
@@ -19,19 +19,20 @@ let paymentRouter = require( './payment/payment' );
 let wageRouter = require( './wage/wage' );
 let taskRouter = require( './tasks/tasks' );
 let clientRouter = require( './clients/clients' );
+let receiptRouter = require( './receipts/receipts' );
 let wagesReportRouter = require( './wage-report/wage-report' );
 
 let app = express();
 
-app.use( '/js/', express.static( path.join(config.rootDir, config.staticDir) ) );
-app.use( '/css/', express.static( path.join(config.rootDir, '/node_modules/bootstrap/dist/' ) ) );
-app.use( '/fa/', express.static( path.join(config.rootDir, '/node_modules/font-awesome/') ) );
+app.use( '/js/', express.static( path.join( config.rootDir, config.staticDir ) ) );
+app.use( '/css/', express.static( path.join( config.rootDir, '/node_modules/bootstrap/dist/' ) ) );
+app.use( '/fa/', express.static( path.join( config.rootDir, '/node_modules/font-awesome/' ) ) );
 
 configureMiddleware( app );
 configureRoutes( app );
 
 function getIndex( request, response ) {
-    response.sendFile( path.join( config.rootDir, 'index.html') );
+    response.sendFile( path.join( config.rootDir, 'index.html' ) );
 }
 
 function createGuid() {
@@ -52,6 +53,7 @@ function configureRoutes( app ) {
     app.use( '/api/wages', wageRouter );
     app.use( '/api/tasks', taskRouter );
     app.use( '/api/clients', clientRouter );
+    app.use( '/api/receipts', receiptRouter );
     app.use( '/api/wages-report', wagesReportRouter );
 
     app.post( '/auth/login', auth.login );
@@ -59,7 +61,7 @@ function configureRoutes( app ) {
     app.post( '/auth/register', auth.register );
 
     app.get( '/bike.ico', ( request, response ) => {
-        response.sendFile( path.join(config.rootDir, config.favicon) );
+        response.sendFile( path.join( config.rootDir, config.favicon ) );
     } );
 
     app.get( '/*', getIndex );
@@ -68,7 +70,7 @@ function configureRoutes( app ) {
 function configureMiddleware( app ) {
     app.use( bodyParser.json() );
 
-    app.use( session({
+    app.use( session( {
         secret: 'lel',
         cookie: {
             key: 'sid',
@@ -78,7 +80,7 @@ function configureMiddleware( app ) {
             genid: createGuid,
             rolling: true
         }
-    }));
+    } ) );
 
     app.use( '/api/*', auth.loggedIn );
 }

@@ -19,7 +19,7 @@ function getWagesReport( request, response ) {
             response.send( error.message );
         } else {
             response.status( 200 );
-            response.send();
+            response.send( rows );
         }
     } );
 }

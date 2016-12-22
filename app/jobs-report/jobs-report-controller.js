@@ -19,10 +19,13 @@ export function JobsReportController( $controller, MapsService, JobsReportServic
         tempFrom = tempFrom.toISOString().slice(0,10).replace(/-/g,"-");
         tempTo = tempTo.toISOString().slice(0,10).replace(/-/g,"-");
 
-        self.model.from = tempFrom;
-        self.model.to = tempTo;
+        let data = {
+            mechanicId: self.model.mechanicId,
+            from: tempFrom,
+            to: tempTo
+        };
 
-        JobsReportService.getJobsReport( self.model ).then( (response) => {
+        JobsReportService.getJobsReport( data ).then( (response) => {
             self.report = response.data;
         }, self.handleError );
     };

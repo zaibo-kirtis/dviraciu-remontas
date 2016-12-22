@@ -18,7 +18,7 @@
             <tr ng-repeat="receipt in receipts.list">
 
                 <td>{{receipt.id}}</td>
-                <td>{{receipt.sum}}</td>
+                <td>{{receipt.sum | currency}}</td>
                 <td>{{receipt.date_created | date:'yyyy-MM-dd'}}</td>
                 <td>{{receipt.receipt_state}}</td>
                 <td>{{receipt.date_to_be_paid | date:'yyyy-MM-dd'}}</td>

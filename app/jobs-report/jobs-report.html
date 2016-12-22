@@ -10,7 +10,7 @@
                 <div class="panel-body row">
                         <div class="col-md-3">
                             <fieldset class="form-group">
-                                <label for="from">Nuo:</label>
+                                <label for="from">Nuo</label>
                                 <input
                                        type="date"
                                        id="from"
@@ -22,7 +22,7 @@
 
                         <div class="col-md-3">
                             <fieldset class="form-group">
-                                <label for="to">Iki:</label>
+                                <label for="to">Iki</label>
                                 <input
                                        type="date"
                                        id="to"
@@ -34,7 +34,7 @@
 
                         <div class="col-md-3">
                             <fieldset class="form-group">
-                                <label for="mechanic">Mechanikas:</label>
+                                <label for="mechanic">Mechanikas</label>
                                 <select id="mechanic"
                                         required
                                         ng-model="jobsReport.model.mechanicId"
@@ -66,7 +66,7 @@
                 <tbody>
                     <tr ng-repeat="job in jobsReport.report">
                         <td>{{job.cost | currency}}</td>
-                        <td>{{job.mechanic}}</td>
+                        <td>{{job.first_name}} {{job.last_name}}</td>
                         <td>{{job.start | date: 'yyyy-MM-dd HH:mm'}}</td>
                         <td>{{job.end | date: 'yyyy-MM-dd HH:mm'}}</td>
                     </tr>

@@ -8,10 +8,10 @@ insert into `user` (
 ) values (
     '{id}',
     '{email}',
-    '{client_id}',
-    '{admin_id}',
-    '{mechanic_id}',
-    '{accountant_id}'
+    '{clientId}',
+    '{adminId}',
+    '{mechanicId}',
+    '{accountantId}'
 ) on duplicate key update
     email = values(email),
     client_id = values(client_id),

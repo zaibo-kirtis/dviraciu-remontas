@@ -9,3 +9,4 @@ select
     b.description as description
 from `bike` b
     join frame_type ft on b.frame_type_id = ft.id
+    where b.client_id = {user_id}

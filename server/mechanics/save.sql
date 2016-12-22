@@ -17,7 +17,7 @@ insert into `mechanic` (
     '{lastName}',
     '{workHours}',
     '{specialization}',
-    '{dateHired}',
+    NOW(),
     '{phone}',
     '{birthdate}',
     '{dateLastPayed}',

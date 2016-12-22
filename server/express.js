@@ -23,6 +23,7 @@ let receiptRouter = require( './receipts/receipts' );
 let wagesReportRouter = require( './wage-report/wage-report' );
 let receiptsReportRouter = require( './receipt-report/receipt-report' );
 let partsReportRouter = require( './part-report/part-report' );
+let accountantsRouter = require( './accountants/accountants' );
 
 let app = express();
 
@@ -50,6 +51,7 @@ function configureRoutes( app ) {
     app.use( '/api/bikes', bikesRouter );
     app.use( '/api/services', servicesRouter );
     app.use( '/api/mechanics', mechanicsRouter );
+    app.use( '/api/accountants', accountantsRouter );
     app.use( '/api/parts', partsRouter );
     app.use( '/api/payments', paymentRouter );
     app.use( '/api/wages', wageRouter );

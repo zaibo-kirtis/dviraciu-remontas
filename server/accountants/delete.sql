@@ -1,0 +1,1 @@
+delete from accountants where id = {id}

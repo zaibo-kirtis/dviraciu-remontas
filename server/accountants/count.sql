@@ -1,0 +1,1 @@
+select count(id) as accountantsCount from accountant

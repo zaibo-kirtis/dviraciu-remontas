@@ -2,6 +2,7 @@ export let MenuItems = [
     { route: 'orders', display: 'Užsakymai', permissions: ['client', 'mechanic'] },
     { route: 'bikes', display: 'Dviračiai', permissions: ['client'] },
     { route: 'mechanics', display: 'Meistrai', permissions: ['admin'] },
+    { route: 'accountants', display: 'Buhalteriai', permissions: ['admin'] },
     { route: 'parts', display: 'Dalys', permissions: ['admin'] },
     { route: 'payments', display: 'Mokėjimai', permissions: ['accountant', 'client'] },
     { route: 'receipts', display: 'Sąskaitos', permissions: ['accountant', 'client'] },

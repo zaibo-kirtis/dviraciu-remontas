@@ -1,0 +1,118 @@
+<div class="container" style="margin-top: 12px" xmlns="">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+
+            <alert message="accountant.error"></alert>
+
+            <div class="panel panel-default">
+                <div ng-if="!accountant.model.id" class="panel-heading">
+                    Naujas buhalteris
+                </div>
+                <div ng-if="accountant.model.id" class="panel-heading">
+                    Buhalterio redagavimas
+                </div>
+
+                <div class="panel-body">
+                    <form>
+                        <fieldset class="form-group">
+                            <label for="first-name">Vardas</label>
+                            <input type="text"
+                                   id="first-name"
+                                   ng-model="accountant.model.firstName"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="last-name">Pavardė</label>
+                            <input type="text"
+                                   id="last-name"
+                                   ng-model="accountant.model.lastName"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="birthdate">Gimimo data</label>
+                            <input type="date"
+                                   id="birthdate"
+                                   ng-model="accountant.model.birthdate"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <!--<fieldset class="form-group">-->
+                            <!--<label for="email">El. paštas</label>-->
+                            <!--<input type="email"-->
+                                   <!--id="email"-->
+                                   <!--ng-model="accountant.model.email"-->
+                                   <!--class="form-control"-->
+                            <!--/>-->
+                        <!--</fieldset>-->
+
+                        <fieldset class="form-group">
+                            <label for="phone">Telefono numeris</label>
+                            <input type="text"
+                                   pattern="[0-9]*"
+                                   id="phone"
+                                   ng-model="accountant.model.phone"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <!--<fieldset class="form-group">-->
+                            <!--<label for="address">Adresas</label>-->
+                            <!--<input type="text"-->
+                                   <!--id="address"-->
+                                   <!--ng-model="accountant.model.address"-->
+                                   <!--class="form-control"-->
+                            <!--/>-->
+                        <!--</fieldset>-->
+
+
+                        <fieldset class="form-group">
+                            <label for="sex">Lytis</label>
+                            <select ng-model="accountant.model.sex"
+                                    class="form-control"
+                                    id="sex"
+                                    ng-options="at.id as at.name for at in accountant.sexes">
+                            </select>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="specialization">Specializacija</label>
+                            <input type="text"
+                                   id="specialization"
+                                   ng-model="accountant.model.specialization"
+                                   class="form-control"
+                            />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="date-registered">Įdarbinimo data</label>
+                            <input type="date"
+                                   id="date-registered"
+                                   ng-model="accountant.model.dateHired"
+                                   class="form-control"
+                            />
+                        </fieldset>
+                        <fieldset class="form-group">
+                        <label for="modified">Paskutinį kartą redaguota</label>
+                        <input ng-disabled="true" type="date"
+                        id="modified"
+                        ng-model="accountant.model.modified"
+                        class="form-control"
+                        />
+                        </fieldset>
+
+                    </form>
+                </div>
+
+                <div class="panel-footer">
+                    <a ng-click="accountant.submit()" class="btn btn-success">Išsaugoti</a>
+                    <a href="accountants" class="btn btn-default">Atšaukti</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1 @@
+select count(id) as receiptCount from receipt

@@ -13,4 +13,4 @@ from receipt
     join receipt_state rs on receipt.receipt_state_id = rs.id
     join client on receipt.client_id = client.id
     join `order` ord on receipt.order_id = ord.id
-WHERE date_created > '{from}' AND date_created < '{to}'
+WHERE receipt.date_created > '{from}' AND receipt.date_created < '{to}'

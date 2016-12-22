@@ -17,6 +17,7 @@
                         <fieldset class="form-group">
                             <label for="first-name">Vardas</label>
                             <input type="text"
+                                   required
                                    id="first-name"
                                    ng-model="mechanic.model.firstName"
                                    class="form-control"
@@ -26,6 +27,7 @@
                         <fieldset class="form-group">
                             <label for="last-name">Pavardė</label>
                             <input type="text"
+                                   required
                                    id="last-name"
                                    ng-model="mechanic.model.lastName"
                                    class="form-control"
@@ -35,6 +37,7 @@
                         <fieldset class="form-group">
                             <label for="email">El. paštas</label>
                             <input type="email"
+                                   required
                                    id="email"
                                    ng-model="mechanic.model.email"
                                    class="form-control"
@@ -44,6 +47,7 @@
                         <fieldset class="form-group">
                             <label for="birthdate">Gimimo data</label>
                             <input type="date"
+                                   required
                                    id="birthdate"
                                    ng-model="mechanic.model.birthdate"
                                    class="form-control"
@@ -60,34 +64,34 @@
                         </fieldset>
 
                         <fieldset class="form-group">
-                            <label for="sex">Lytis</label>
-                            <select ng-model="mechanic.model.sex"
-                                    class="form-control"
-                                    id="sex"
-                                    ng-options="at.id as at.name for at in mechanic.sexes">
-                            </select>
-                        </fieldset>
-
-                        <fieldset class="form-group">
                             <label for="specialization">Specializacija</label>
                             <input type="text"
+                                   required
                                    id="specialization"
                                    ng-model="mechanic.model.specialization"
                                    class="form-control"
                             />
                         </fieldset>
 
+                        <fieldset class="form-group">
+                            <label for="service">Servisas</label>
+                            <select ng-model="mechanic.model.service"
+                                    class="form-control"
+                                    id="service"
+                                    ng-options="at.id as at.name for at in mechanic.services">
+                            </select>
+                        </fieldset>
 
 
                         <fieldset class="form-group">
                             <label for="work-hours">Darbo trukmė</label>
                             <input type="text"
+                                   required
                                    id="work-hours"
                                    ng-model="mechanic.model.workHours"
                                    class="form-control"
                             />
                         </fieldset>
-
 
                         <fieldset class="form-group">
                             <label for="dateLastPayed">Paskutinė algos gavimo data</label>
@@ -98,13 +102,12 @@
                             />
                         </fieldset>
 
-
                         <fieldset class="form-group">
-                            <label for="service">Servisas</label>
-                            <select ng-model="mechanic.model.service"
+                            <label for="sex">Lytis</label>
+                            <select ng-model="mechanic.model.sex"
                                     class="form-control"
-                                    id="service"
-                                    ng-options="at.id as at.name for at in mechanic.services">
+                                    id="sex"
+                                    ng-options="at.id as at.name for at in mechanic.sexes">
                             </select>
                         </fieldset>
 

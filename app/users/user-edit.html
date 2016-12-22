@@ -17,6 +17,7 @@
                         <fieldset class="form-group">
                             <label for="email">Email</label>
                             <input type="text"
+                                   required
                                    id="email"
                                    ng-model="user.model.email"
                                    class="form-control"
@@ -26,17 +27,9 @@
                         <fieldset class="form-group">
                             <label for="password">Slaptažodis</label>
                             <input type="password"
+                                   required
                                    id="password"
                                    ng-model="user.model.password"
-                                   class="form-control"
-                            />
-                        </fieldset>
-
-                        <fieldset class="form-group">
-                            <label for="dateRegistered">Registracijos data</label>
-                            <input ng-disabled="true" type="date"
-                                   id="dateRegistered"
-                                   ng-model="user.model.dateRegistered"
                                    class="form-control"
                             />
                         </fieldset>
@@ -75,6 +68,15 @@
                                     id="mechanic"
                                     ng-options="at.id as at.first_name for at in user.mechanics">
                             </select>
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <label for="dateRegistered">Registracijos data</label>
+                            <input ng-disabled="true" type="date"
+                                   id="dateRegistered"
+                                   ng-model="user.model.dateRegistered"
+                                   class="form-control"
+                            />
                         </fieldset>
 
                     </form>

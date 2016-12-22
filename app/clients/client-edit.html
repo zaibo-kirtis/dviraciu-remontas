@@ -17,6 +17,7 @@
                         <fieldset class="form-group">
                             <label for="first-name">Vardas</label>
                             <input type="text"
+                                   required
                                    id="first-name"
                                    ng-model="client.model.firstName"
                                    class="form-control"
@@ -26,6 +27,7 @@
                         <fieldset class="form-group">
                             <label for="last-name">Pavardė</label>
                             <input type="text"
+                                   required
                                    id="last-name"
                                    ng-model="client.model.lastName"
                                    class="form-control"
@@ -35,6 +37,7 @@
                         <fieldset class="form-group">
                             <label for="birthdate">Gimimo data</label>
                             <input type="date"
+                                   required
                                    id="birthdate"
                                    ng-model="client.model.birthdate"
                                    class="form-control"
@@ -44,6 +47,7 @@
                         <fieldset class="form-group">
                             <label for="email">El. paštas</label>
                             <input type="email"
+                                   required
                                    id="email"
                                    ng-model="client.model.email"
                                    class="form-control"

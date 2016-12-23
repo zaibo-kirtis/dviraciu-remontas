@@ -2,6 +2,10 @@ let helpers = {
     insertData: ( query, object ) => {
         for( let property in object ) {
             object[ property ] = object[ property ] || null;
+
+            if(typeof(object[property]) === 'string') {
+                object[property] = preventInjection(object[property]);
+            }
         }
 
         query = query
@@ -21,5 +25,9 @@ let helpers = {
         return query.replace( '[where]', conditions ? ` where ${conditions}` : '' );
     }
 };
+
+function preventInjection(str) {
+    return str.replace(/['"\b\n\r\t\\%_]/g, '');
+}
 
 module.exports = helpers;

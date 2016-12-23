@@ -3,7 +3,7 @@
     <div class="row">
 
             <alert message="job.error"></alert>
-
+        <p><b>Mechaniko atliktų darbų ataskaitos sudarymas.</b></p>
             <div class="panel panel-default">
                 <div class="panel-heading">Įveskite norimą intervalą:</div>
 
@@ -58,6 +58,7 @@
                 <thead>
                     <tr>
                         <th>Užsakymas</th>
+                        <th>Suma</th>
                         <th>Mechanikas</th>
                         <th>Pradėtas</th>
                         <th>Baigtas</th>
@@ -65,6 +66,7 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="job in jobsReport.report">
+                        <td>{{job.orderId}}</td>
                         <td>{{job.cost | currency : "€"}}</td>
                         <td>{{job.first_name}} {{job.last_name}}</td>
                         <td>{{job.start | date: 'yyyy-MM-dd HH:mm'}}</td>

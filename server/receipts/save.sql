@@ -18,8 +18,10 @@ group by client_id);
 
 update `job` set `end` = NOW() where order_id = {orderId};
 
+set @date_to_pay = DATE_ADD(NOW(), INTERVAL 30 DAY);
+
 insert into receipt (id, client_id, comment, date_created, date_to_be_paid, order_id, receipt_state_id, sum)
-values({id}, @client_id, {comment}, NOW(), NOW(), {orderId}, 1, @totalPrice) on duplicate key update
+values({id}, @client_id, {comment}, NOW(), @date_to_pay, {orderId}, 1, @totalPrice) on duplicate key update
 id = last_insert_id(id),
 client_id = values(client_id),
 comment = values(comment),

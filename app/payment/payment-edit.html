@@ -15,14 +15,14 @@
                 <div class="panel-body">
                         <fieldset class="form-group">
                             <label for="sum">Suma</label>
-                            <input type="text"
+                            <input type="number"
+                                   min="0.01" max="1000" step="0.01" value="0.01"
                                    id="sum"
                                    required
                                    ng-model="payment.model.sum"
                                    class="form-control"
                             />
                         </fieldset>
-
 
                         <fieldset class="form-group">
                             <label for="receipt_id">Sąskaitos numeris</label>

@@ -16,11 +16,11 @@
         <tbody>
             <tr ng-repeat="wage in wages.list">
 
-                <td>{{wage.sum}}</td>
+                <td>{{wage.sum | currency : "€"}}</td>
                 <td>{{wage.work_hours}}</td>
                 <td>{{wage.date | date:'yyyy-MM-dd'}}</td>
                 <td>{{wage.deductibles}}</td>
-                <td>{{wage.pvm}}</td>
+                <td>{{wage.pvm | currency : "€"}}</td>
                 <td>{{wage.first_name}} {{wage.last_name}}</td>
 
                 <td align="center"><a ng-href="/wage/{{wage.id}}"><i class="fa fa-check-square-o"></i></a></td>

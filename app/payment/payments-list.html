@@ -18,11 +18,11 @@
         <tbody>
             <tr ng-repeat="payment in payments.list">
 
-                <td>{{payment.sum}}</td>
+                <td>{{payment.sum | currency : "€"}}</td>
                 <td>{{payment.date | date:'yyyy-MM-dd'}}</td>
                 <td>{{payment.receipt_id}}</td>
                 <td>{{payment.comment}}</td>
-                <td><i class="fa fa-trash"></i></td>
+                <td><a ng-click="payments.deletePayment(payment)"class="btn btn-link btn-sm"><i class="fa fa-trash"></i></a></td>
             </tr>
         </tbody>
     </table>

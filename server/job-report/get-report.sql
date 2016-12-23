@@ -3,7 +3,8 @@ SELECT
 `end`,
 j.order_id as orderId,
 r.sum as cost,
-m.first_name + ' ' + m.last_name as mechanic
+m.first_name as first_name,
+m.last_name as last_name
 from `job` j
 join mechanic m on m.id = j.mechanic_id
 join receipt r on r.order_id = j.order_id

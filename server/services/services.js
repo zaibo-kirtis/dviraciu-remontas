@@ -46,6 +46,7 @@ function getService( request, response ) {
 
 function saveService( request, response ) {
     db.query( queries.saveService, request.body, ( error, rows ) => {
+        // need check data like in ataskaita
         if( error ) {
             response.status( 400 );
             response.send( error.message );

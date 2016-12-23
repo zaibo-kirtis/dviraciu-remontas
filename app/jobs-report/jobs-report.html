@@ -1,3 +1,4 @@
+<form ng-submit="jobsReport.submit()">
 <div class="container" style="margin-top: 12px" xmlns="">
     <div class="row">
 
@@ -7,10 +8,9 @@
                 <div class="panel-heading">Įveskite norimą intervalą:</div>
 
                 <div class="panel-body row">
-                    <form>
                         <div class="col-md-3">
                             <fieldset class="form-group">
-                                <label for="from">Nuo:</label>
+                                <label for="from">Nuo</label>
                                 <input
                                        type="date"
                                        id="from"
@@ -22,7 +22,7 @@
 
                         <div class="col-md-3">
                             <fieldset class="form-group">
-                                <label for="to">Iki:</label>
+                                <label for="to">Iki</label>
                                 <input
                                        type="date"
                                        id="to"
@@ -34,22 +34,23 @@
 
                         <div class="col-md-3">
                             <fieldset class="form-group">
-                                <label for="mechanic">Iki:</label>
+                                <label for="mechanic">Mechanikas</label>
                                 <select id="mechanic"
                                         required
                                         ng-model="jobsReport.model.mechanicId"
                                         class="form-control"
                                         ng-options="m.id as (m.first_name + ' ' + m.last_name) for m in jobsReport.mechanics"
-                                ></select>
+                                >
+                                    <option value="">Pasirinkite mechaniką</option>
+                                </select>
                             </fieldset>
                         </div>
 
                         <div class="col-md-3">
                             <br>
-                            <a ng-click="jobsReport.submit()" class="btn btn-success">Rodyti ataskaitą</a>
+                            <button type="submit" class="btn btn-success">Rodyti ataskaitą</button>
                         </div>
 
-                    </form>
                 </div>
             </div>
 
@@ -64,13 +65,13 @@
                 </thead>
                 <tbody>
                     <tr ng-repeat="job in jobsReport.report">
-                        <td>{{job.cost | currency}}</td>
-                        <td>{{job.mechanic}}</td>
+                        <td>{{job.cost | currency : "€"}}</td>
+                        <td>{{job.first_name}} {{job.last_name}}</td>
                         <td>{{job.start | date: 'yyyy-MM-dd HH:mm'}}</td>
                         <td>{{job.end | date: 'yyyy-MM-dd HH:mm'}}</td>
                     </tr>
                 </tbody>
             </table>
-
     </div>
 </div>
+</form>

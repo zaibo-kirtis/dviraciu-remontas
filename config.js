@@ -3,10 +3,18 @@ let config = {
     staticDir: 'build',
     rootDir: __dirname,
 
+    // mysql: {
+    //     host: 'stud.if.ktu.lt',
+    //     database: 'gvijan',
+    //     user: 'gvijan',
+    //     password: 'stud1234',
+    //     multipleStatements: true
+    // },
+
     mysql: {
-        host: 'stud.if.ktu.lt',
-        database: 'gvijan',
-        user: 'gvijan',
+        host: 'gvidasja.com',
+        database: 'gvidasja_zaibas',
+        user: 'gvidasja_zaibas',
         password: 'stud1234',
         multipleStatements: true
     },

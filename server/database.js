@@ -10,7 +10,6 @@ module.exports = {
         if(typeof(data) === 'function') {
             cb = data;
             db.query( query, cb );
-            console.log(query);
         } else {
             db.query( helpers.insertData( query, data ), cb );
         }

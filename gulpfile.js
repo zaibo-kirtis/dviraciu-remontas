@@ -39,7 +39,7 @@ function buildJs( browserifiedBundle ) {
         .pipe( sourcemaps.write( '.' ) )
         .pipe( gulp.dest( config.staticDir ) )
         .on( 'error', ( error ) => {
-            console.log( console.error(error))
+            console.error(error)
         });
 }
 

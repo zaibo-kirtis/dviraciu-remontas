@@ -77,6 +77,8 @@ function configureMiddleware( app ) {
     app.use( bodyParser.json() );
 
     app.use( session( {
+        saveUninitialized: true,
+        resave: true,
         secret: 'lel',
         cookie: {
             key: 'sid',

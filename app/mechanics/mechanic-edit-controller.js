@@ -9,11 +9,6 @@ export function MechanicController( MechanicsService, MapsService, $routeParams,
     };
     this.submit = function submit() {
         self.clearError();
-        console.log(self.model);
-        // self.model.data.dateLastPayed = new Date(self.model.data.dateLastPayed);
-        // self.model.data.dateHired = new Date(self.model.data.dateHired);
-        // self.model.data.birthdate = new Date(self.model.data.birthdate);
-        // self.model.data.datemodified = new Date(self.model.data.datemodified);
         MechanicsService.saveMechanic( self.model ).then( () => {
             $location.path( '/mechanics' );
         }, self.handleError );

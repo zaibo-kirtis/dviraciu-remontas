@@ -8,7 +8,6 @@ let helpers = {
             .replace( /'{(\w*)}'/g, ( match, key ) => object[ key ] ? `'${preventInjection(object[ key ])}'` : null )
             .replace( /{(\w*)}/g, ( match, key ) => object[ key ] || null );
 
-        console.log(query);
         return query;
     },
 

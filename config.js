@@ -12,6 +12,7 @@ let config = {
     },
 
     favicon: 'bike.ico',
+
     js: [ './app/app.js' ],
     index: [ './app/index.html' ],
     html: [ './app/**/*.html', '!./app/index.html' ],

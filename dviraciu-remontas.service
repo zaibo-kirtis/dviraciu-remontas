@@ -1,0 +1,13 @@
+[Service]
+ExecStart=/home/ubuntu/dviraciu-remontas/index.js
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=dviraciu-remontas
+User=ubuntu
+Group=ubuntu
+Environment=NODE_ENV=prod
+Environment=NODE_PORT=11002
+
+[Install]
+WantedBy=multi-user.target

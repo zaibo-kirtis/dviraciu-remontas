@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 require.extensions['.sql'] = require('./server/sql-reader');
 
 let config = require( './config' );

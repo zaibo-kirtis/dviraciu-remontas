@@ -1,5 +1,3 @@
-#@(#) script.ddl
-
 DROP TABLE IF EXISTS `payment`;
 DROP TABLE IF EXISTS `task_order`;
 DROP TABLE IF EXISTS `part_order`;
@@ -284,7 +282,7 @@ INSERT INTO `frame_type` (`name`) VALUES
     ('Plienas'),
     ('Aliuminis'),
     ('Titanas'),
-    ('Anglies pluoštas'),
+    ('Anglies pluostas'),
     ('Termoplastikas'),
     ('Magnis'),
     ('Berilis'),
@@ -293,13 +291,13 @@ INSERT INTO `frame_type` (`name`) VALUES
     ('Mišrus');
 
 INSERT INTO `order_state` (`name`) VALUES
-    ('Nepradėtas'),
-    ('Pradėtas'),
+    ('Nepradetas'),
+    ('Pradetas'),
     ('Baigtas');
 
 INSERT INTO `receipt_state` (`name`) VALUES
-    ('Apmokėtas'),
-    ('Neapmokėtas');
+    ('Apmoketas'),
+    ('Neapmoketas');
 
 INSERT INTO `sex` (`name`) VALUES
     ('Vyras'),

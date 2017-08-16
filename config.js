@@ -1,13 +1,13 @@
 let config = {
-    port: process.env.PORT || 4000,
+    port: process.env.PORT || 11002,
     staticDir: 'build',
     rootDir: __dirname,
 
     mysql: {
-        host: 'stud.if.ktu.lt',
-        database: 'gvijan',
-        user: 'gvijan',
-        password: 'stud1234',
+        host: 'localhost',
+        database: 'dviraciai',
+        user: 'dvi',
+        password: 'dvi',
         multipleStatements: true
     },
 

@@ -46,7 +46,7 @@
                 <td>{{order.dateModified | date : 'yyyy-MM-dd' }}</td>
 
                 <td>
-                    <a ng-href="/order/{{order.id}}"
+                    <a ng-href="order/{{order.id}}"
                        ng-if="order.orderStateId !== 3 && orders.isAllowed(['mechanic'])"
                        class="btn btn-link btn-sm">
                         <i class="fa fa-edit"></i>
@@ -74,7 +74,7 @@
                         Užbaigti
                     </a>
 
-                    <a ng-href="/receipts/{{order.receiptId}}"
+                    <a ng-href="receipts/{{order.receiptId}}"
                        ng-if="orders.isAllowed(['client']) && order.receiptId"
                        class="btn btn-link btn-sm">
                         <i class="fa fa-credit-card"></i>

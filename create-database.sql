@@ -291,3 +291,30 @@ CREATE TABLE `payment`
 	PRIMARY KEY(`id`),
 	FOREIGN KEY(`receipt_id`) REFERENCES `receipt` (`id`)
 );
+
+INSERT INTO `sex`(id, name) VALUES
+	(1,'Male'),
+	(2,'Female'),
+	(3,'Other');
+
+INSERT INTO `frame_type`(id, name) VALUES
+	(1,'Aluminum'),
+	(2,'Carbon Fiber'),
+	(3,'Wood'),
+	(4,'Titanium'),
+	(5,'Other');
+
+INSERT INTO `order_state`(id, name) VALUES
+	(1,'Pending'),
+	(2,'In Progress'),
+	(3,'Finished');
+
+INSERT INTO `receipt_state`(id, name) VALUES
+	(1,'Unpaid'),
+	(2,'Paid');
+
+INSERT INTO `admin`(id, first_name, last_name, phone, address, birthdate, sex_id) VALUES
+	(1,'Admin','Adminer','+37061234567','Lel st. 69, Kaunas','19950310',1);
+
+INSERT INTO `user`(id, username, password, email, date_registered, admin_id) VALUES
+	(1,'admin@lel.com','lel','admin@lel.com',CURRENT_DATE(), 1);

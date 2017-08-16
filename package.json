@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "gulp prod",
     "start": "gulp prod && node index.js",
     "dev": "concurrently \"gulp dev\" \"node .\""
   },

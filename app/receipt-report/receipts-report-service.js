@@ -1,6 +1,6 @@
 /* @ngInject */
 export function ReceiptsReportService( $http ) {
     return {
-        getReceiptsReport: (data) => $http.post( '/api/receipts-report', data )
+        getReceiptsReport: (data) => $http.post( 'api/receipts-report', data )
     }
 }

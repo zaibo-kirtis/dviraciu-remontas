@@ -8,19 +8,19 @@ export function AuthService( $http, Session ) {
     };
 
     function login(email, password) {
-        return $http.post('/auth/login', { email, password }).then( response => {
+        return $http.post('auth/login', { email, password }).then( response => {
             Session.user = response.data;
         });
     }
 
     function logout() {
-        return $http.post('/auth/logout').then( () => {
+        return $http.post('auth/logout').then( () => {
             delete Session.user;
         });
     }
 
     function register( user ) {
-        return $http.post('/auth/register', user);
+        return $http.post('auth/register', user);
     }
 
     function isAllowed(permissions) {
